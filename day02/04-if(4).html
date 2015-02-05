@@ -16,15 +16,32 @@
 		<![endif]-->
 		
 		<script type="text/javascript">			
-			/**
-			 * 
-			 * 
-			 * 
-			 * 여기에 작성하세요.
-			 * 
-			 * 
-			 * 
-			 */
+            var is_korean = true;
+            var is_japanese = false;
+
+            if(is_korean == true){
+                document.write("<h1>한국사람입니다.</h1>");
+            }
+
+            if(!is_japanese){
+                document.write("<h1>일본사람이 아닙니다.</h1>");
+            }
+
+            if(is_japanese != true){
+                document.write("<h1>일본사람이 아닙니다.</h1>");
+            }
+
+            if(is_japanese != false){
+                document.write("<h1>일본사랍 입니다</h1>");
+            }
+
+            if(is_japanese){
+                document.write("<h1>일본사람이 아닙니다.</h1>");
+            }
+
+            if(!is_japanese){
+                document.write("<h1>일본사람 입니다.</h1>");
+            }
 		</script>
 	</head>
 

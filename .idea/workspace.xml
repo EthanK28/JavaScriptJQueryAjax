@@ -24,28 +24,98 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="05-value.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/day01/05-value.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.25" vertical-offset="20" max-vertical-offset="950">
-              <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="07-operator(2).html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/day01/07-operator(2).html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-22.392857" vertical-offset="0" max-vertical-offset="893">
-              <caret line="33" column="29" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="08-operator(3).html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="08-operator(3).html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/day01/08-operator(3).html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-21.714285" vertical-offset="0" max-vertical-offset="874">
+              <caret line="32" column="35" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="09-operator(4).html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/day01/09-operator(4).html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-17.642857" vertical-offset="0" max-vertical-offset="760">
+              <caret line="26" column="32" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="01-if(1).html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/day02/01-if(1).html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-14.928572" vertical-offset="0" max-vertical-offset="741">
+              <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="02-if(2).html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/day02/02-if(2).html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-12.214286" vertical-offset="0" max-vertical-offset="741">
+              <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="03-if(3).html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/day02/03-if(3).html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-12.214286" vertical-offset="0" max-vertical-offset="817">
+              <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="04-if(4).html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/day02/04-if(4).html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-28.5" vertical-offset="0" max-vertical-offset="1064">
+              <caret line="42" column="53" selection-start-line="42" selection-start-column="53" selection-end-line="42" selection-end-column="53" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="06-if(6).html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/day02/06-if(6).html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-21.714285" vertical-offset="0" max-vertical-offset="855">
+              <caret line="32" column="32" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="07-switch.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/day02/07-switch.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-16.285715" vertical-offset="0" max-vertical-offset="855">
+              <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="08-for(1).html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/day02/08-for(1).html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-12.892858" vertical-offset="0" max-vertical-offset="703">
+              <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="09-for(2).html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/day02/09-for(2).html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.36774194" vertical-offset="0" max-vertical-offset="930">
               <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
@@ -62,6 +132,15 @@
         <option value="$PROJECT_DIR$/day01/05-value.html" />
         <option value="$PROJECT_DIR$/day01/07-operator(2).html" />
         <option value="$PROJECT_DIR$/day01/08-operator(3).html" />
+        <option value="$PROJECT_DIR$/day01/09-operator(4).html" />
+        <option value="$PROJECT_DIR$/day02/01-if(1).html" />
+        <option value="$PROJECT_DIR$/day02/02-if(2).html" />
+        <option value="$PROJECT_DIR$/day02/03-if(3).html" />
+        <option value="$PROJECT_DIR$/day02/04-if(4).html" />
+        <option value="$PROJECT_DIR$/day02/06-if(6).html" />
+        <option value="$PROJECT_DIR$/day02/07-switch.html" />
+        <option value="$PROJECT_DIR$/day02/08-for(1).html" />
+        <option value="$PROJECT_DIR$/day02/09-for(2).html" />
       </list>
     </option>
   </component>
@@ -125,6 +204,34 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="day03" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaScriptJQueryAjax완벽가이드" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaScriptJQueryAjax완벽가이드" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="day02" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaScriptJQueryAjax완벽가이드" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JavaScriptJQueryAjax완벽가이드" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="day01" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -140,18 +247,28 @@
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="recentsLimit" value="5" />
   </component>
-  <component name="RunManager" selected="JavaScript Debug.07-operator(2).html">
-    <configuration default="false" name="06-operator(1).html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63343/JavaScriptJQueryAjax완벽가이드/day01/06-operator(1).html">
+  <component name="RunManager" selected="JavaScript Debug.08-for(1).html">
+    <configuration default="false" name="09-operator(4).html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63343/JavaScriptJQueryAjax완벽가이드/day01/09-operator(4).html">
       <RunnerSettings RunnerId="JavascriptDebugRunner" />
       <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
       <method />
     </configuration>
-    <configuration default="false" name="05-value.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63343/JavaScriptJQueryAjax완벽가이드/day01/05-value.html">
+    <configuration default="false" name="04-if(4).html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63343/JavaScriptJQueryAjax완벽가이드/day02/04-if(4).html">
       <RunnerSettings RunnerId="JavascriptDebugRunner" />
       <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
       <method />
     </configuration>
-    <configuration default="false" name="07-operator(2).html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63343/JavaScriptJQueryAjax완벽가이드/day01/07-operator(2).html">
+    <configuration default="false" name="06-if(6).html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63343/JavaScriptJQueryAjax완벽가이드/day02/06-if(6).html">
+      <RunnerSettings RunnerId="JavascriptDebugRunner" />
+      <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="07-switch.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63343/JavaScriptJQueryAjax완벽가이드/day02/07-switch.html">
+      <RunnerSettings RunnerId="JavascriptDebugRunner" />
+      <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="08-for(1).html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63343/JavaScriptJQueryAjax완벽가이드/day02/08-for(1).html">
       <RunnerSettings RunnerId="JavascriptDebugRunner" />
       <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
       <method />
@@ -188,16 +305,20 @@
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <method />
     </configuration>
-    <list size="3">
-      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.06-operator(1).html" />
-      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.05-value.html" />
-      <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.07-operator(2).html" />
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.09-operator(4).html" />
+      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.04-if(4).html" />
+      <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.06-if(6).html" />
+      <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.07-switch.html" />
+      <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.08-for(1).html" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.07-operator(2).html" />
-        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.06-operator(1).html" />
-        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.05-value.html" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.08-for(1).html" />
+        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.07-switch.html" />
+        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.06-if(6).html" />
+        <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.04-if(4).html" />
+        <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.09-operator(4).html" />
       </list>
     </recent_temporary>
   </component>
@@ -273,6 +394,78 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/day01/08-operator(3).html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-21.714285" vertical-offset="0" max-vertical-offset="874">
+          <caret line="32" column="35" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day01/09-operator(4).html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.642857" vertical-offset="0" max-vertical-offset="760">
+          <caret line="26" column="32" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day02/01-if(1).html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.928572" vertical-offset="0" max-vertical-offset="741">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day02/02-if(2).html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.214286" vertical-offset="0" max-vertical-offset="741">
+          <caret line="18" column="26" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day02/03-if(3).html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.214286" vertical-offset="0" max-vertical-offset="817">
+          <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day02/04-if(4).html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-28.5" vertical-offset="0" max-vertical-offset="1064">
+          <caret line="42" column="53" selection-start-line="42" selection-start-column="53" selection-end-line="42" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day02/06-if(6).html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-21.714285" vertical-offset="0" max-vertical-offset="855">
+          <caret line="32" column="32" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day02/07-switch.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.285715" vertical-offset="0" max-vertical-offset="855">
+          <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day02/08-for(1).html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.892858" vertical-offset="0" max-vertical-offset="703">
+          <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/day02/09-for(2).html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.36774194" vertical-offset="0" max-vertical-offset="930">
           <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
