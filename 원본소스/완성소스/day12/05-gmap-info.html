@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>gmap-info</title>
+
+		<!-- 모바일 웹 페이지 설정 -->
+		<link rel="shortcut icon" href="img/icon.png" />
+		<link rel="apple-touch-icon" href="img/icon.png" />
+		<!-- 모바일 웹 페이지 설정 끝 -->
+
+		<!--[if lt IE 9]>
+		<script src="js/html5shiv.js"></script>
+		<![endif]-->
+
+		<!-- 사용자 정의 CSS -->
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+
+		<!-- jQuery Framework 참조하기 -->
+		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+		<!-- plugin 참조 -->
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+		<script type="text/javascript" src="plugins/gmap/gmaps.js"></script>
+		<script type="text/javascript" src="plugins/xdomain/jquery.xdomainajax.js"></script>
+		<script type="text/javascript" src="plugins/xml2json/jquery.xml2json.js"></script>
+
+		<style type="text/css">
+			#map {
+				width: 100%;
+				height: 480px;
+			}
+		</style>
+
+		<!-- 사용자 스크립트 블록 -->
+		<script type="text/javascript">
+			/** 전역변수들 생성 */
+			// 네이버 OpenAPI 연동키
+			var naver_key = "8de1551ac92e5b4dbab6def0750b6d52";
+			// 구글맵 객체
+			var map = null;
+			// 위도 기본값
+			var lat = 37.498627;
+			// 경도 기본값
+			var lng = 127.030767;
+
+			// 현재 위치의 대략적인 주소
+			var area_addr = null;
+			
+			// 마커들이 저장될 빈 배열
+			var marker_list = new Array();
+			// 저장된 마커의 갯수를 카운트할 변수
+			var marker_count = 0;
+
+			// 마커를 추가하기 위한 함수
+			// 업체의 이름, 홈페이지 주소, 실주소, 설명, 전화번호를 파라미터로 사용
+			// --> 주소를 사용하여 위/경도를 획득한 뒤, 주소 기반으로 마커를 출력한다.
+			function addMarker(title, link, address, description, telephone) {
+				GMaps.geocode({
+					"address" : address,
+					"callback" : function(results, status) {
+						if (status == 'OK') {
+							// 조회된 위도경도 정보
+							var latlng = results[0].geometry.location;
+							
+							/**
+							 * 생성된 마커를 배열의 marker_count번째에 저장하고, marker_count를 1증가한다.
+							 * 최초 호출될 때, marker_count[0]에 저장하고 카운터값은 1이 된다.
+							 * 두 번째 호출될 때, marker_count[1]에 저장하고 카운터값은 2가 된다.
+							 */
+							marker_list[marker_count++] = map.addMarker({
+								"lat" : latlng.lat(),
+								"lng" : latlng.lng(),
+								"infoWindow" : {
+									"content" : "<h1><a href='" + link + "' target='_blank'>" + title + "</a></h1><p>" + description + "</p>" + "<p><a href='tel:" + telephone + "'>" + telephone + "</a></p>"
+								}
+							});
+						}
+					}
+				});
+			}
+
+			$(function() {
+				/** 페이지 시작시 현재 위치를 기반으로 주소 조회 --> HTML5의 Geolocation 사용 */
+				GMaps.geolocate({
+					// 위치정보 획득 성공시
+					success : function(position) {
+						// 위도/경도 획득
+						lat = position.coords.latitude;
+						lng = position.coords.longitude;
+
+						// 지도의 중심 설정
+						map.setCenter(lat, lng);
+
+						// 위경도로 주소변환 API사용
+						$.getJSON("http://maps.googleapis.com/maps/api/geocode/json", {
+							"latlng" : lat + "," + lng,
+							"sensor" : "true"
+						}, function(req) {
+							if (req.results) {
+								for (var i=0; i<req.results.length; i++) {
+									if (req.results[i].types[0] == "postal_code") {
+										area_addr = req.results[i].formatted_address;
+										break; 
+									} 
+								} 
+
+								// 사용자의 현재 위치에 마커 추가
+								map.addMarker({
+									"lat" : lat,
+									"lng" : lng,
+									/** 사용자 정의 아이콘 지정 */
+									"icon" : "img/my.png",
+									"infoWindow" : {
+										"content" : "현재 위치: " + area_addr + " 부근"
+									}
+								});
+
+								// HTML 페이지 제목에 위치 출력
+								$("#address").html(area_addr);
+							}
+						});
+					},
+					error : function(error) {
+						alert('위치정보 조회에 실패했습니다. : ' + error.message);
+					},
+					not_supported : function() {
+						alert("Geolocation 기능을 지원하지 않는 브라우저 입니다.");
+					},
+					always : function() {
+						console.log("처리 완료됨");
+					}
+				});
+
+				// 구글맵 생성
+				map = new GMaps({
+					"el" : '#map',
+					"lat" : lat,
+					"lng" : lng
+				});
+
+				// form의 submit 이벤트 발생시
+				$('#geoform').submit(function(e) {
+					event.preventDefault();
+					
+					// 검색어
+					var keyword = $('#keyword').val().trim();
+
+					if (!keyword) {
+						alert("검색어를 입력하세요.");
+						return false;
+					}
+					
+					// 화면상에 보여지고 있는 모든 마커를 삭제
+					for (var i=0; i<marker_count; i++) {
+						// 1) 지도에서 마커 지우기
+						marker_list[i].setMap(null);
+						// 2) 마커객체 제거
+						marker_list[i] = null;
+					}
+					// 마커의 카운터 초기화
+					marker_count = 0;
+
+					// 검색어 생성
+					// ex) 서울특별시 강남구 역삼1동 치킨집
+					var query = area_addr + " " + keyword;
+
+					// naver-open-api 호출
+					$.get("http://openapi.naver.com/search", {
+						"key" : naver_key,
+						"query" : query,
+						"target" : "local",
+						"start" : 1,
+						"display" : 20
+					}, function(xml) {
+						// XML결과를 JSON으로 변환
+						var json = $.xml2json(xml.responseText);
+						// 검색결과가 존재한다면?
+						if (json.channel) {
+							// 결과항목의 배열 얻기
+							var item = json.channel.item;
+
+							// 배열의 수 만큼 반복
+							for (var i = 0; i < item.length; i++) {
+								// 결과값 추출
+								var title = item[i].title;
+								var description = item[i].description;
+								var telephone = item[i].telephone;
+								var link = item[i].link;
+								var address = item[i].address;
+								
+								// 마커 생성 함수 호출
+								addMarker(title, link, address, description, telephone);
+							}
+						}
+					});
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<h1 class="title"><span id="address"></span> 주변검색</h1>
+		<div class="exec">
+			<form method="post" id="geoform">
+				<label for="keyword">검색어를 입력하세요.</label>
+				<div>
+					<input type="text" id="keyword" name="keywrod" />
+					<input type="submit" class="btn" value="Search" />
+				</div>
+			</form>
+		</div>
+		<div class="example">
+			<div id="map"></div>
+		</div>
+	</body>
+</html>

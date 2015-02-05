@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>booklet(2)</title>
+
+		<!-- 모바일 웹 페이지 설정 -->
+		<link rel="shortcut icon" href="img/icon.png" />
+		<link rel="apple-touch-icon" href="img/icon.png" />
+		<!-- 모바일 웹 페이지 설정 끝 -->
+
+		<!--[if lt IE 9]>
+		<script src="js/html5shiv.js"></script>
+		<![endif]-->
+
+		<!-- 공통 css -->
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+
+		<!-- jQuery Framework 참조하기 -->
+		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+
+		<!-- plugin 참조 -->
+		<script type="text/javascript" src="plugins/booklet/jquery-ui-1.10.1.custom.min.js"></script>
+		<script type="text/javascript" src="plugins/booklet/jquery.easing.1.3.js"></script>
+		<script type="text/javascript" src="plugins/booklet/jquery.booklet.latest.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="plugins/booklet/jquery.booklet.latest.css" />
+		<!--// plugin 참조 -->
+
+		<!-- 사용자 CSS 블록 -->
+		<style type="text/css">
+			/** 전체 배경은 검은색 */
+			body {
+				background: #000;
+			}
+			
+			/** 제목을 책장 하단에 표시하도록 설정 */
+			#mybook h3 {
+				position: absolute; bottom:15px; left:50px;
+			}
+
+			/** 각 페이지마다 배경이미지 지정 및 높이 설정 */
+			#mybook .page1 {
+				background: url('img/slide-1.jpg') no-repeat !important;
+				height: 100%;
+			}
+
+			#mybook .page2 {
+				background: url('img/slide-2.jpg') no-repeat !important;
+				height: 100%;
+			}
+
+			#mybook .page3 {
+				background: url('img/slide-3.jpg') no-repeat !important;
+				height: 100%;
+			}
+
+			#mybook .page4 {
+				background: url('img/slide-4.jpg') no-repeat !important;
+				height: 100%;
+			}
+		</style>
+
+		<!-- 사용자 스크립트 블록 -->
+		<script type="text/javascript">
+			$(function() {
+				$("#mybook").booklet();
+			});
+		</script>
+
+	</head>
+	<body>
+		<div id="mybook">
+			<div class="page1">
+				<h3>Page 1</h3>
+			</div>
+			<div class="page2">
+				<h3>Page 2</h3>
+			</div>
+			<div class="page3">
+				<h3>Page 3</h3>
+			</div>
+			<div class="page4">
+				<h3>Page 4</h3>
+			</div>
+		</div>
+	</body>
+</html>

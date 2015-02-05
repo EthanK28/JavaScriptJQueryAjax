@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>scrollTo(4)</title>
+
+		<!-- 모바일 웹 페이지 설정 -->
+		<link rel="shortcut icon" href="img/icon.png" />
+		<link rel="apple-touch-icon" href="img/icon.png" />
+		<!-- 모바일 웹 페이지 설정 끝 -->
+
+		<!--[if lt IE 9]>
+		<script src="js/html5shiv.js"></script>
+		<![endif]-->
+
+		<!-- 공통 css -->
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+
+		<!-- 사용자 정의 css -->
+		<style type="text/css">
+			/** 메뉴박스 */
+			#header {
+				position: fixed;
+				left: 0;
+				top: 0;
+				z-index: 10000;
+				width: 100%;
+				/* position: fiexed 에 대한 IE8 호환용 CSS핵
+				 * --> CSS핵은 각 브라우저별로 CSS구문 오류에 대한 해석능력의 차이를 이용하는 것이므로, Aptana에서는 문법 오류가 날 수 있습니다. */
+				_position: absolute;
+				_top: expression(eval(document.body.scrollTop));
+			}
+
+			/** 메뉴박스 > 목록박스의 우측 배치 */
+			#header ul {
+				position: absolute;
+				top: 7px;
+				right: 10px;
+			}
+
+			/** 메뉴박스 > 목록박스 > 각 항목의 가로 배치 */
+			#header ul li {
+				display: inline-block;
+			}
+
+			/** 메뉴박스 > 목록박스 > 각 항목 > 링크의 크기 지정 */
+			#header ul li a {
+				display: block;
+				padding: 5px 10px;
+			}
+
+			/** 메뉴박스 > 목록박스 > 각 항목 > 링크의 마우스 오버 효과 */
+			#header ul li a:hover {
+				background-color: #5B739C;
+				color: white;
+			}
+
+			/** 각 페이지 박스의 크기 설정 */
+			.page {
+				height: 100%;
+				width: 100%;
+				background-size: cover !important;
+				
+				/***** 추가코드 시작 *****/
+				display: inline-block;
+				/* For IE 7 */
+				zoom: 1;
+				*display: inline;
+				/***** 추가 코드 끝 *****/
+			}
+			
+			/***** 추가코드 시작 *****/
+			body {
+				white-space: nowrap;
+			}
+			/***** 추가 코드 끝 *****/
+
+			/** 각 페이지 박스별 배경 지정 */
+			#page1 {
+				background: url('img/page1.jpg') center center no-repeat;
+			}
+
+			#page2 {
+				background: url('img/page2.jpg') center center no-repeat;
+			}
+
+			#page3 {
+				background: url('img/page3.jpg') center center no-repeat;
+			}
+
+			/** 각 페이지 박스 > 내용영역의 설정 */
+			.content {
+				width: auto;
+				color: white;
+				font-size: 20px;
+				/** 상단 메뉴바의 높이 만큼 padding-top은 필수로 지정해야 가려지는 영역이 발생하지 않는다. */
+				padding: 70px;
+			}
+		</style>
+
+		<!-- jQuery Framework 참조하기 -->
+		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+		<!-- scrollTo Plugin -->
+		<script type="text/javascript" src="js/jquery.scrollTo-min.js"></script>
+		<!-- 사용자 스크립트 블록 -->
+		<script type="text/javascript">
+			$(function() {
+				$("#header a").click(function() {
+					// body 태그 자체를 스크롤 시킨다.
+					$("body").scrollTo($(this).attr("href"), 500);
+					return false;
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<!-- 상단 메뉴 -->
+		<div id="header">
+			<h1 class="title">Content Scroll Example</h1>
+			<ul>
+				<li>
+					<a href="#page1">#page1</a>
+				</li>
+				<li>
+					<a href="#page2">#page2</a>
+				</li>
+				<li>
+					<a href="#page3">#page3</a>
+				</li>
+			</ul>
+		</div>
+		<!-- 페이지 구성 영역 -->
+		<div id="page1" class="page">
+			<div class="content">
+				page1 입니다.
+			</div>
+		</div><!--
+		--><div id="page2" class="page">
+			<div class="content">
+				page2 입니다.
+			</div>
+		</div><!--
+		--><div id="page3" class="page">
+			<div class="content">
+				page3 입니다.
+			</div>
+		</div>
+	</body>
+</html>

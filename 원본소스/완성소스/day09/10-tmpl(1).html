@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>tmpl(1)</title>
+
+		<!-- 모바일 웹 페이지 설정 -->
+		<link rel="shortcut icon" href="img/icon.png" />
+		<link rel="apple-touch-icon" href="img/icon.png" />
+		<!-- 모바일 웹 페이지 설정 끝 -->
+
+		<!--[if lt IE 9]>
+		<script src="js/html5shiv.js"></script>
+		<![endif]-->
+
+		<!-- 사용자 정의 CSS -->
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+
+		<!-- jQuery Framework 참조하기 -->
+		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+
+		<!-- plugin 참조 -->
+		<script type="text/javascript" src="plugins/tmpl/jquery.tmpl.min.js"></script>
+		
+		<!-- 템플릿으로 사용할 HTML태그 -->
+		<script id="itemTemplate" type="text/x-jquery-tmpl">
+			<div>
+				<h1 style='font-size: 20px; font-weight: bold'>${title}</h1>
+				<p style='padding: 10px 0'><img src="${img}" /></p>
+				<p>{{html content}}</p>
+			</div>
+		</script>
+		<!--// 템플릿 끝 -->
+
+		<!-- 사용자 스크립트 블록 -->
+		<script type="text/javascript">
+			$(function() {
+				var data = {
+					"title": "jQuery Template 예제",
+					"img": "img/slide-1.jpg",
+					"content": "<font color='blue'><strong>Template란</strong></font>, 미리 준비된 HTML의 틀 안에 내용을 채워 넣는 기능입니다."
+				};
+				
+				// 템플릿에 정의된 ${이름}에 JSON의 값들을 자동으로 대입해서 동적요소를 생성한다.
+				// 단, HTML이 포함된 값의 경우에는 {{html 이름}}으로 구성한다.
+				var div = $("#itemTemplate").tmpl(data);
+				
+				// 생성된 동적 요소를 출력한다.
+				$("#view").append(div);
+			});
+		</script>
+	</head>
+
+	<body>
+		<h1 class="title">템플릿 플러그인 (1)</h1>
+		<div class="exec" id="view">
+			
+		</div>
+	</body>
+</html>

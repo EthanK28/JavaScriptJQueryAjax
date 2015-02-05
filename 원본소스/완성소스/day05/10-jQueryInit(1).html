@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>jQueryInit(1)</title>
+
+		<!-- 모바일 웹 페이지 설정 -->
+		<link rel="shortcut icon" href="img/icon.png" />
+		<link rel="apple-touch-icon" href="img/icon.png" />
+		<!-- 모바일 웹 페이지 설정 끝 -->
+
+		<!--[if lt IE 9]>
+		<script src="js/html5shiv.js"></script>
+		<![endif]-->
+
+		<!-- jQuery Framework 참조하기 -->
+		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+		<!-- 사용자 스크립트 블록 -->
+		<script type="text/javascript">
+			/** 앞 예제와 동일한 블록 입니다. */
+			function initPage() {
+				var h1 = document.getElementById("hello");
+				h1.style.color = "#0000ff";
+				h1.style.backgroundColor = "#d5d5d5";
+				h1.style.fontSize = "50px";
+				h1.style.padding = "15px";
+				h1.style.margin = "0";
+				h1.innerHTML = "Hello jQuery";
+			}
+
+			/** 앞 예제와 동일한 블록 입니다. */
+			function sayHello() {
+				alert("안녕하세요. 제이쿼리");
+			}
+
+			// Classic Javascript의 onLoad 이벤트와 같은 효과 입니다.
+			jQuery(sayHello);
+			jQuery(initPage);
+		</script>
+
+	</head>
+	<!-- body태그에 기술되던 Javascript 구문이 분리되었다. -->
+	<body>
+		<!-- 제어 대상에게 id속성값을 부여한다. -->
+		<h1 id="hello"></h1>
+	</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>jQueryInit(2)</title>
+
+		<!-- 모바일 웹 페이지 설정 -->
+		<link rel="shortcut icon" href="img/icon.png" />
+		<link rel="apple-touch-icon" href="img/icon.png" />
+		<!-- 모바일 웹 페이지 설정 끝 -->
+
+		<!--[if lt IE 9]>
+		<script src="js/html5shiv.js"></script>
+		<![endif]-->
+
+		<!-- jQuery Framework 참조하기 -->
+		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+		<!-- 사용자 스크립트 블록 -->
+		<script type="text/javascript">
+			// (2) initPage 에게는 "$"라는 객체(혹은 함수)가 파라미터로 전달되는데,
+			//     이 "$"는 jQuery의 모든 기능을 담고 있는 jQuery의 최상위 객체이다.
+			function initPage($) {
+				// var h1 = document.getElementById("hello");
+				var h1 = $("#hello");
+				// h1.innerHTML = "Hello Javascript";
+				h1.html("Hello jQuery");
+			}
+
+			// (1) body태그의 onload 이벤트때 호출되는 initPage함수
+			jQuery(initPage);
+		</script>
+
+	</head>
+	<body>
+		<h1 id="hello"></h1>
+	</body>
+</html>

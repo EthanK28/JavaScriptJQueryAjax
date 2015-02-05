@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>04-date</title>
+    <script type="text/javascript" src="date.js"></script>
+    <script type="text/javascript">
+      var date = new Date();
+      document.write("<h3>오늘은 " + date.getDateTime() + " " + date.getDayName() + "요일 입니다.</h3>");
+      document.write("<h3>크리스마스까지는 " + date.getDday(date.getFullYear(), 12, 25) + "일 남았습니다.</h3>");
+
+      date.add("d", 100);
+      document.write("<h3>지금부터 100일 후는 " + date.getDateTime() + " " + date.getDayName() + "요일 입니다.</h3>");
+
+      date.goToday();
+      document.write("<h3>" + date.toString() + "</h3>");
+    </script>
+  </head>
+  <body></body>
+</html>

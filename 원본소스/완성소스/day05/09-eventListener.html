@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>eventListener</title>
+
+		<!-- 모바일 웹 페이지 설정 -->
+		<link rel="shortcut icon" href="img/icon.png" />
+		<link rel="apple-touch-icon" href="img/icon.png" />
+		<!-- 모바일 웹 페이지 설정 끝 -->
+
+		<!--[if lt IE 9]>
+		<script src="js/html5shiv.js"></script>
+		<![endif]-->
+		
+		<!-- 사용자 스크립트 블록 -->
+		<script type="text/javascript">
+			// <h1>태그를 클릭하였을 때 실행할 함수
+			function h1_click() {
+				alert("클릭하셨습니다.");
+			}
+			
+			// <body>의 onload 이벤트에 연결할 함수 (1)
+			function sayHello() {
+				alert("안녕하세요. 자바스크립트");
+			}
+			
+			// <body>의 onload 이벤트에 연결할 함수 (2)
+			function initPage() {
+				var h1 = document.getElementById("hello");
+				h1.style.color = "#0000ff";
+				h1.style.backgroundColor = "#d5d5d5";
+				h1.style.fontSize = "50px";
+				h1.style.padding = "15px";
+				h1.style.margin = "0";
+				h1.innerHTML = "Hello Javascript";
+				
+				// 페이지 로드가 완료된 이후이므로 <h1>태그에 이벤트를 연결할 수 있다.
+				// 단, IE와 그 이외의 브라우저를 구별해 주어야 한다.
+				if (window.addEventListener) {
+					// for Non IE 
+					h1.addEventListener("click", h1_click, false);
+				} else {
+					// for IE
+					h1.attachEvent("click", h1_click);
+				}
+			}
+			
+			/** 비IE와 IE를 분기하여 각각 이벤트 적용 */
+			if (window.addEventListener) {
+				// for Non IE  
+				window.addEventListener("load", sayHello, false);
+				window.addEventListener("load", initPage, false);
+			} else {
+				// for IE
+				window.attachEvent("load", sayHello);
+				window.attachEvent("load", initPage);
+			}
+		</script>
+		
+	</head>
+	<body>
+		<h1 id="hello"></h1>
+	</body>
+</html>

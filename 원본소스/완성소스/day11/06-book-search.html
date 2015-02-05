@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>book-search</title>
+
+		<!-- 모바일 웹 페이지 설정 -->
+		<link rel="shortcut icon" href="img/icon.png" />
+		<link rel="apple-touch-icon" href="img/icon.png" />
+		<!-- 모바일 웹 페이지 설정 끝 -->
+
+		<!--[if lt IE 9]>
+		<script src="js/html5shiv.js"></script>
+		<![endif]-->
+
+		<!-- 공통 CSS 및 사용자 정의 CSS -->
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/list.css" />
+
+		<!-- jQuery Framework 참조하기 -->
+		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+
+		<!-- plugin 참조 -->
+		<script type="text/javascript" src="plugins/xdomain/jquery.xdomainajax.js"></script>
+		<script type="text/javascript" src="plugins/xml2json/jquery.xml2json.js"></script>
+		<script type="text/javascript" src="plugins/tmpl/jquery.tmpl.min.js"></script>
+		
+		<!-- 템플릿으로 사용할 HTML태그 -->
+		<script id="itemTemplate" type="text/x-jquery-tmpl">
+			<li>
+				<a href="${link}" target="_blank">
+					<span class="thumb"><img src="${image}"/></span>
+					<span class="text">
+						<span class="title">{{html title}}</span>
+						<span class="desc">{{html description}}</span>
+						<span class="info">저자: ${author} / 출판사: ${publisher} / 정가: ${price} / 할인가: ${discount}</span>
+					</span>
+				</a>
+			</li>
+		</script>
+		<!--// 템플릿 끝 -->
+
+		<!-- 사용자 스크립트 블록 -->
+		<script type="text/javascript">
+			// 네이버 OpenAPI 키 값
+			var api_key = "c7b8d2e23c56cf0717e549a56b8a0821";
+
+			$(function() {
+				/** name속성이 form1인 요소에 대하여 submit 이벤트 정의 */
+				$("form[name='form1']").submit(function() {
+					event.preventDefault();
+
+					// 사용자가 입력한 검색어
+					var keyword = $("input[name='keyword']").val();
+
+					// 검색어 입력여부 검사
+					if (!keyword) {
+						alert("검색어를 입력하세요.");
+						$("input[name='keyword']").focus();
+						return false;
+					}
+
+					// 화면에 출력중인 이전 검색결과 지우기
+					$("#list").empty();
+					
+					// get 방식으로 XML데이터 크로스 도메인 요청
+					$.get("http://openapi.naver.com/search", {
+						/** 네이버에서 요구하는 파라미터 셋팅 */
+						"target" : "book",
+						"query" : keyword,
+						"display" : 20,
+						"start" : 1,
+						"key" : api_key
+					}, function(data) {
+						// 응답결과 XML을 JSON으로 변경
+						var json = $.xml2json(data.responseText);
+						
+						// 반복되는 단위인 item을 추출 --> 배열
+						var item = json.channel.item;
+						
+						// json배열을 템플릿에 통째로 지정
+						var div = $("#itemTemplate").tmpl(item);
+						$("#list").append(div);
+
+					}).fail(function() {
+						alert("데이터 조회에 실패했습니다. 잠시후에 시도해 주세요.");
+					});
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<h1 class="title">네이버 책 검색 연동</h1>
+		<div class="exec">
+			<form name="form1">
+				<fieldset>
+					<legend>검색어 입력</legend>
+					<input type="text" name="keyword"/>
+					<input type="submit" value="검색하기" />
+				</fieldset>
+			</form>
+		</div>
+		<!-- 목록이 출력될 요소 -->
+		<ul id="list"></ul>
+	</body>
+</html>

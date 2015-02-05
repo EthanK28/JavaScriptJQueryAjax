@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>모바일 브라우저 판단</title>
+
+		<!-- 모바일 웹 페이지 설정 -->
+		<link rel="shortcut icon" href="img/icon.png" />
+		<link rel="apple-touch-icon" href="img/icon.png" />
+		<!-- 모바일 웹 페이지 설정 끝 -->
+
+		<!--[if lt IE 9]>
+		<script src="js/html5shiv.js"></script>
+		<![endif]-->
+
+		<script type="text/javascript">
+			/** 모바일 브라우저이면 true, 그렇지 않으면 false를 리턴하는 사용자 정의 함수 */
+			function isMobile() {
+				var tmpUser = navigator.userAgent;
+				var isMobile = false;
+
+				// userAgent값에 iPhone, iPad, iPod, Android 라는 문자열이 하나라도 검색되면, 모바일로 간주한다.
+				if (tmpUser.indexOf("iPhone") > 0 || tmpUser.indexOf("iPad") > 0 || tmpUser.indexOf("iPod") > 0 || tmpUser.indexOf("Android ") > 0) {
+					isMobile = true;
+				}
+				
+				return isMobile;
+			}
+			
+			var isMobileWeb = isMobile();
+			
+			if (isMobileWeb) {
+				document.write("<h1>모바일 웹 브라우저로 접속하셨습니다.</h1>");
+			} else {
+				document.write("<h1>PC용 웹 브라우저로 접속하셨습니다.</h1>");
+			}
+		</script>
+	</head>
+
+	<body></body>
+</html>
+

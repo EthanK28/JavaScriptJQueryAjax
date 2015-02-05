@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>cookie</title>
+
+		<!-- 모바일 웹 페이지 설정 -->
+		<link rel="shortcut icon" href="img/icon.png" />
+		<link rel="apple-touch-icon" href="img/icon.png" />
+		<!-- 모바일 웹 페이지 설정 끝 -->
+
+		<!--[if lt IE 9]>
+		<script src="js/html5shiv.js"></script>
+		<![endif]-->
+
+		<!-- 사용자 정의 CSS -->
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+
+		<!-- jQuery Framework 참조하기 -->
+		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+		<!-- plugin 참조 -->
+		<script type="text/javascript" src="plugins/cookie/jquery.cookie.js"></script>
+
+		<!-- 사용자 스크립트 블록 -->
+		<script type="text/javascript">
+			$(function() {
+				// 저장된 쿠키값을 읽어오기
+				var c_user_id = $.cookie("user_id");
+				var c_user_pw = $.cookie("user_pw");
+				
+				// 저장된 값이 있다면?
+				if (c_user_id && c_user_pw) {
+					// 입력 요소에 값을 출력해 준다.
+					$("#user_id").val(c_user_id);
+					$("#user_pw").val(c_user_pw);
+					// 체크박스는 체크해 준다.
+					$("#auto_save").prop("checked", true);
+				}
+				
+				// 체크박스의 상태가 변경된 경우.
+				$("#auto_save").change(function() {
+					if ($(this).is(":checked")) {
+						// 체크되었다면, 사용자에게 저장여부를 물어본다.
+						if (confirm("공용 PC에서 로그인정보를 저장할 경우, 다른사람에게 노출될 위험이 있습니다. 정보를 저장하시겠습니까?")) {
+							// 사용자가 승인했다면, 값을 1년간 모든 경로에서 유효하도록 저장한다.
+							$.cookie("user_id", $("#user_id").val(), {"expire": 365, "path": "/"});
+							$.cookie("user_pw", $("#user_pw").val(), {"expire": 365, "path": "/"});
+						}
+					} else {
+						// 체크가 해제되었다면 쿠키 삭제.
+						$.removeCookie("user_id");
+						$.removeCookie("user_pw");
+						// 입력요소의 내용은 삭제
+						$("#user_id").val("");
+						$("#user_pw").val("");
+					}
+				});
+			});
+		</script>
+	</head>
+	
+	<body>
+		<h1 class="title">Cookie 예제</h1>
+		<div class="exec">
+			<div>
+				<label for="user_id">아이디</label>
+				<input type="text" id="user_id" />
+			</div>
+			<div>
+				<label for="user_pw">비밀번호</label>
+				<input type="password" id="user_pw" />
+			</div>
+			<div>
+				<label for="auto_save">아이디/비밀번호 저장</label>
+				<input type="checkbox" id="auto_save" />
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>02-School</title>
+    <script type="text/javascript" src="02-School.js"></script>
+    <script type="text/javascript">
+      // 객체를 생성한다.
+      var member = new School.Member("teacher", "강사");
+      var txt1 = member.getInfo();
+      document.write("<h1>" + txt1 + "</h1>");
+
+      // 정보를 변경한다.
+      member.setId("student");
+      member.setName("학생");
+      var txt2 = member.getInfo();
+      document.write("<h1>" + txt2 + "</h1>");
+    </script>
+  </head>
+
+  <body></body>
+</html>

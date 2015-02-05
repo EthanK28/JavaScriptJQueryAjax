@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>d'day 계산기</title>
+
+		<!-- 모바일 웹 페이지 설정 -->
+		<link rel="shortcut icon" href="img/icon.png" />
+		<link rel="apple-touch-icon" href="img/icon.png" />
+		<link rel="apple-touch-startup-image" href="img/startup.jpg">
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<!-- 모바일 웹 페이지 설정 끝 -->
+
+		<!--[if lt IE 9]>
+		<script src="js/html5shiv.js"></script>
+		<![endif]-->
+
+		<script type="text/javascript">
+			/** 오늘부터 파라미터로 전달받은 날짜에 대한 d'day를 계산하여 리턴한다. */ 
+			function getDday(y, m, d) {
+				// 오늘 날짜
+				var today = new Date();
+				// 파라미터로 받은 날짜
+				// 정상적인 날짜값을 받은 경우, Javascript의 객체에 전달할 때는 "-1"처리해 주어야 한다.
+				var dday = new Date(y, m-1, d);
+				// 두 날짜간의 차이를 구한다.
+				var cnt = dday.getTime() - today.getTime();
+				// 남은 날짜는 1시간이라도 1일로 계산해야 하므로, 연산결과를 올림한다.
+				var n = Math.ceil(cnt / (24 * 60 * 60 * 1000));
+				return n; 
+			}
+			
+			// 매년 12월 31일까지의 남은 날짜 계산하기
+			var date = new Date();
+			var y = date.getFullYear();
+			// "-1"을 하지 않은 정상적인 날짜를 전달하도록 구현하자.
+			var dday = getDday(y, 12, 31);
+			
+			document.write("<h1>올해는 앞으로 " + dday + "일 남았습니다.</h1>");
+		</script>
+	</head>
+
+	<body>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+

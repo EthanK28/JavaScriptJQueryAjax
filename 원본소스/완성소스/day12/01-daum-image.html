@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>daum-image</title>
+
+        <!-- 모바일 웹 페이지 설정 -->
+        <link rel="shortcut icon" href="img/icon.png" />
+        <link rel="apple-touch-icon" href="img/icon.png" />
+        <!-- 모바일 웹 페이지 설정 끝 -->
+
+        <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+        <![endif]-->
+
+        <!-- 공통 CSS -->
+        <link rel="stylesheet" type="text/css" href="css/reset.css" />
+        <link rel="stylesheet" type="text/css" href="css/common.css" />
+        <link rel="stylesheet" type="text/css" href="css/list.css" />
+
+        <!-- jQuery Framework 참조하기 -->
+        <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+
+        <!-- plugin 참조 -->
+        <script type="text/javascript" src="plugins/tmpl/jquery.tmpl.min.js"></script>
+
+        <!-- 템플릿으로 사용할 HTML태그 -->
+        <script id="itemTemplate" type="text/x-jquery-tmpl">
+            <li>
+            <a href="${link}" target="_blank">
+            <span class="thumb"><img src="${thumbnail}"/></span>
+            <span class="text">
+            <span class="title">{{html title}}</span>
+            <span class="desc">이미지 크기: ${width}x${height}</span>
+            <span class="info">등록일시: ${pubDate}</span>
+            </span>
+            </a>
+            </li>
+        </script>
+        <!--// 템플릿 끝 -->
+
+        <!-- 사용자 스크립트 블록 -->
+        <script type="text/javascript">
+            // 다음 OpenAPI 키 값
+            var api_key = "ef91238f81a6680742a47aa84677b7c1c75620d4";
+
+            // 기본 페이지
+            var pageNow = 1;
+
+            // 전체 페이지 수
+            var pageCount = 0;
+
+            // 검색 키워드
+            var keyword = null;
+
+            // 현재 Ajax 통신중임을 판단하기 위한 변수 (true=통신중, false=통신중아님)
+            var isLoading = false;
+
+            /** 검색어와 몇 페이지의 컨텐츠인지를 받아서 ajax로 연동 후, 화면에 출력하는 함수 */
+            function loadImage(k, p) {
+                // 통신중이라면 처리 안함
+                if (isLoading) {
+                    return false;
+                }
+
+                // 상태값을 통신중으로 변경
+                isLoading = true;
+
+                $.getJSON("http://apis.daum.net/search/image?callback=?", {
+                    /** daum에서 요구하는 파라미터 셋팅 */
+                    "q" : k,
+                    "result" : 10,
+                    "pageno" : p,
+                    "sort" : "accu",
+                    "output" : "json",
+                    "apikey" : api_key
+                }, function(json) {
+                    // json 결과에 channel이라는 값이 없다면, daum에서는 dmessage와
+                    // message라는 에러 원인을 전달한다.
+                    if (json.channel == undefined) {
+                        alert(json.dmessage + "\n(" + json.message + ")");
+                    } else {
+                        // 전체 페이지 수
+                        pageCount = json.channel.pageCount;
+
+                        // 반복되는 단위인 item을 추출 --> 배열
+                        var item = json.channel.item;
+
+                        // 반복문으로 배열의 길이만큼 진행
+                        for (var i = 0; i < item.length; i++) {
+                            // 제목 안에 포함되어 있는 HTML 태그 제거
+                            item[i].title = item[i].title.replace(/\&lt;/g, "<").replace(/\&gt;/g, ">");
+                        }
+
+                        // ajax 결과를 템플릿에 적용하여 화면 출력
+                        var tmpl = $("#itemTemplate").tmpl(item);
+                        $("#list").append(tmpl);
+                    }
+                }).fail(function() {
+                    // 데이터 연동에 실패한 경우 (404, 500에러)
+                    alert("데이터 조회에 실패했습니다. 잠시후에 시도해 주세요.");
+                }).always(function() {
+                    // 에러 여부에 상관없이 통신이 종료되면, 상태값을 다시 변경한다.
+                    isLoading = false;
+                });
+            }
+
+            /** 페이지가 열렸을 경우 */
+            $(function() {
+                /** name속성이 form1인 요소에 대하여 submit 이벤트 정의 */
+                $("form[name='form1']").submit(function() {
+                    // 폼의 submit 방지
+                    event.preventDefault();
+
+                    // 사용자가 입력한 검색어
+                    keyword = $("input[name='keyword']").val();
+
+                    // 검색어 입력여부 검사
+                    if (!keyword) {
+                        alert("검색어를 입력하세요.");
+                        $("input[name='keyword']").focus();
+                        return false;
+                    }
+
+                    // 화면에 출력중인 이전 검색결과 지우기
+                    $("#list").empty();
+
+                    // 신규 검색이므로 페이지 수를 1로 재설정
+                    pageNow = 1;
+                    // 다음페이지에 대한 요청을 처리하도록 함수를 호출한다.
+                    loadImage(keyword, pageNow);
+                });
+
+                /** 스크롤 이벤트 정의 */
+                $(window).scroll(function() {
+                    // 스크롤이 맨 밑에 도착했다면?
+                    if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+                        // 현재 페이지가 전체 페이지 수 보다 작다면?
+                        if (pageNow < pageCount) {
+                            // 1초 후에 동작하도록 타임아웃 설정
+                            setTimeout(function() {
+                                // 현재 페이지 수를 1 증가한다.
+                                pageNow++;
+                                // 다음페이지에 대한 요청을 처리하도록 함수를 호출한다.
+                                loadImage(keyword, pageNow);
+                            }, 1000);
+                        }
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <h1 class="title">daum 이미지 검색</h1>
+        <div class="exec">
+            <form name="form1">
+                <fieldset>
+                    <legend>
+                        검색어 입력
+                    </legend>
+                    <input type="text" name="keyword"/>
+                    <input type="submit" value="검색하기" />
+                </fieldset>
+            </form>
+        </div>
+        <!-- 목록이 출력될 요소 -->
+        <ul id="list"></ul>
+    </body>
+</html>

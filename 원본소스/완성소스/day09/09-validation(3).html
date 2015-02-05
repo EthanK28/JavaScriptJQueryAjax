@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>validation(3)</title>
+
+		<!-- 모바일 웹 페이지 설정 -->
+		<link rel="shortcut icon" href="img/icon.png" />
+		<link rel="apple-touch-icon" href="img/icon.png" />
+		<!-- 모바일 웹 페이지 설정 끝 -->
+
+		<!--[if lt IE 9]>
+		<script src="js/html5shiv.js"></script>
+		<![endif]-->
+
+		<!-- 사용자 정의 CSS -->
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+
+		<!-- jQuery Framework 참조하기 -->
+		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+
+		<!-- plugin 참조 -->
+		<script type="text/javascript" src="plugins/validation/jquery.validate.min.js"></script>
+
+		<style type="text/css">
+			#signupForm label[for] {
+				width: 120px;
+				display: inline-block;
+			}
+
+			#signupForm label {
+				font-size: 14px;
+				padding: 5px 0;
+			}
+
+			#signupForm input {
+				border: 1px solid #ccc;
+				padding: 2px 5px;
+				vertical-align: middle;
+			}
+		</style>
+
+		<!-- 사용자 스크립트 블록 -->
+		<script type="text/javascript">
+			$(function() {
+				$("#signupForm").validate({
+					rules : {
+						username : "required",
+						age : {
+							required : true,
+							digits : true
+						},
+						userid : {
+							required : true,
+							minlength : 4
+						},
+						pwd : {
+							required : true,
+							minlength : 4,
+							maxlength : 8
+						},
+						pwd_re : {
+							required : true,
+							equalTo : "#pwd"
+						},
+						email : {
+							required : true,
+							email : true
+						},
+						weburl : {
+							url : true
+						},
+						topic : {
+							required : "#newsletter:checked",
+							minlength : 2
+						},
+						agree : "required"
+					},
+					messages : {
+						username : "이름은 필수 입력 항목 입니다.",
+						age : {
+							required : "나이를 입력해 주세요",
+							digits : "숫자로만 입력가능 합니다."
+						},
+						userid : {
+							required : "아이디를 입력해 주세요.",
+							minlength : "아이디는 최소 {0}글자 입니다."
+						},
+						pwd : {
+							required : "비밀번호를 입력해 주세요.",
+							minlength : "비밀번호는 최소 {0}글자 입니다.",
+							maxlength : "비밀번호는 최대 {0}글자 입니다.",
+						},
+						pwd_re : {
+							required : "비밀번호 확인값을 입력해 주세요.",
+							equalTo : "비밀번호 확인이 잘못되었습니다."
+						},
+						email : {
+							required : "이메일을 입력해 주세요.",
+							email : "이메일이 형식에 맞지 않습니다."
+						},
+						weburl : {
+							url : "올바른 인터넷 주소 형식이 아닙니다."
+						},
+						topic : {
+							required : "뉴스레터 가입시 관심분야 선택은 필수 입니다.",
+							minlength : "최소 {0}개 이상 체크해 주세요."
+						},
+						agree : "약관 동의에 체크해 주세요."
+					},
+					// 키보드에 의한 검사 해제
+					onkeyup : false,
+					// 체크박스나 라디오 버튼은 클릭시마다 검사 해제
+					onclick : false,
+					// 포커스가 빠져나올 경우의 검사 해제
+					onfocusout : false,
+					// 에러 발생시 이벤트를 가로 챔
+					showErrors : function(errorMap, errorList) {
+						// 에러메시지 출력
+						alert(errorList[0].message);
+					}
+				});
+			});
+		</script>
+	</head>
+
+	<body>
+		<h1 class="title">폼 유효성 체크 플러그인 (3)</h1>
+		<div class="exec">
+			<form id="signupForm" method="post" action="join_ok.html">
+				<p>
+					<label for="username">이름 *</label>
+					<input id="username" name="username" type="text" />
+				</p>
+				<p>
+					<label for="age">나이 *</label>
+					<input id="age" name="age" type="text" />
+				</p>
+				<p>
+					<label for="userid">아이디 *</label>
+					<input id="userid" name="userid" type="text" />
+				</p>
+				<p>
+					<label for="pwd">비밀번호 *</label>
+					<input id="pwd" name="pwd" type="password" />
+				</p>
+				<p>
+					<label for="pwd_re">비번확인 *</label>
+					<input id="pwd_re" name="pwd_re" type="password" />
+				</p>
+				<p>
+					<label for="email">이메일 *</label>
+					<input id="email" name="email" type="email" />
+				</p>
+				<p>
+					<label for="weburl">홈페이지/블로그</label>
+					<input id="weburl" name="weburl" type="url" />
+				</p>
+				<p>
+					<label for="newsletter">뉴스레터 가입</label>
+					<label> 가입합니다.
+						<input type="checkbox" id="newsletter" name="newsletter" />
+					</label>
+				</p>
+				<p>
+					<label for="">뉴스레터 관심분야</label>
+					<label> 신간도서 안내
+						<input type="checkbox" name="topic" id="reading">
+					</label>
+					<label> 개봉 예정 영화
+						<input type="checkbox" name="topic" id="movie">
+					</label>
+					<label> 새로 발매된 음반
+						<input type="checkbox" name="topic" id="music">
+					</label>
+				</p>
+				<p>
+					<label for="newsletter">약관동의 *</label>
+					<label> 동의합니다.
+						<input type="checkbox" id="agree" name="agree" />
+					</label>
+				</p>
+				<p>
+					<input class="submit" type="submit" value="Submit"/>
+				</p>
+			</form>
+		</div>
+	</body>
+</html>

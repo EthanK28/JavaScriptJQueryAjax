@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>Hello Javascript</title>
+		
+		<!-- 모바일 웹 페이지 설정 -->
+		<link rel="shortcut icon" href="img/icon.png" />
+		<link rel="apple-touch-icon" href="img/icon.png" />
+		<link rel="apple-touch-startup-image" href="img/startup.jpg">
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<!-- 모바일 웹 페이지 설정 끝 -->
+		
+		<!--[if lt IE 9]>
+		<script src="js/html5shiv.js"></script>
+		<![endif]-->
+		
+		<script type="text/javascript">
+			/**
+			 * Javascript의 객체 지향
+			 * ----------------------------------
+			 * 클래스라는 객체의 설계도를 먼저 작성하고, 클래스에서 객체를 생산해 내는 Java언어와 다르게,
+			 * Javascript는 빈 깡통과 같은 객체를 생성하고, 그 안에 변수나 함수를 추가하는 과정으로 객체 지향을 구현한다.
+			 * ----------------------------------
+			 * Javascript에서 객체의 의미.
+			 * --> 변수와 함수를 개발자의 판단에 따라 하나의 그릇에 담아내는 그룹단위
+			 * --> 객체 안에 포함된 변수 = 멤버변수
+			 * --> 객체 안에 포함된 함수 = 메서드 
+			 */
+			// 비어 있는 객체의 생성
+			var people = {};
+				
+			// 객체 안에 변수를 포함시키기
+			people.name = "주영아";
+			people.gender = "여자";
+			
+			// 프로퍼티(=멤버변수)의 사용
+			document.write("<h1>" + people.name + "님은 " + people.gender + "입니다.</h1>");
+		</script>
+	</head>
+
+	<body></body>
+</html>
