@@ -31,15 +31,25 @@
 
 		<!-- 사용자 스크립트 블록 -->
 		<script type="text/javascript">
-			/**
-			 * 
-			 * 
-			 * 
-			 * 여기에 작성하세요.
-			 * 
-			 * 
-			 * 
-			 */
+			$(function(){
+                    $("#mybtn").click(function(){
+                    $.ajax({
+                        url:"ajax/text/02.txt",
+                        type:"get",
+                        dataType:"text",
+                        timeout:30000,
+                        cache:false,
+                        success: function(data){
+                            // dataType값이 text일 경우에는 단순히 내용에 대한 문자열임
+                            $("#result").append(data);
+                        },
+                        error:function(xhr, textStatus, errorThrown){
+                            //읽으려는 대상의 주소가 잘못된 경우에 사용됩니다.
+                            $("div").html("<html>"+textStatus+"(HTTP-"+xhr.status+"/"+errorThrown+")</div>");
+                        }
+                    });
+                });
+            });
 		</script>
 
 	</head>

@@ -31,15 +31,28 @@
 
 		<!-- 사용자 스크립트 블록 -->
 		<script type="text/javascript">
-			/**
-			 * 
-			 * 
-			 * 
-			 * 여기에 작성하세요.
-			 * 
-			 * 
-			 * 
-			 */
+			$("#category").load("ajax/text/category-data.html #category1-1.html", function() {
+                //로딩이 완료되ㅏ면드롭다운을 감싸는 태그 요소를 화면에 표시함
+                $(this).show();
+            });
+
+            //드롭다운은 body상에 없으므로 이벤트를 "미리"해 놓아야 한다.
+            //1depth에 대한 change 이벤트 정의
+            $(document).on("change","#category1 > select", function(){
+
+            });
+
+            //2depth에 대한 change 이벤트 정의
+            $(document).on("change","#category2 > select", function(){
+
+            });
+
+            //3depth에 대한 change 이벤트 정의
+            $(document).on("change","#category3 > select", function(){
+
+            });
+
+
 		</script>
 
 	</head>
