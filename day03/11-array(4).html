@@ -19,15 +19,13 @@
 		<![endif]-->
 
 		<script type="text/javascript">
-			/**
-			 * 
-			 * 
-			 * 
-			 * 여기에 작성하세요.
-			 * 
-			 * 
-			 * 
-			 */
+		    var str = "주영아, 19세, 여자, 이쁨";
+            //콤마(,)를 기준으로 문자열을 잘라내서, 배열로 리턴한다
+             var data = str.split(",");
+
+            for(var i = 0; i<data.length; i++){
+                document.write("<h1>"+data[i]+"</h1>");
+            }
 		</script>
 	</head>
 
