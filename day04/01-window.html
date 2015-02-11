@@ -1,40 +1,50 @@
 <!DOCTYPE html>
 <html lang="ko">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-		<title>window</title>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>open</title>
 
-		<!-- 모바일 웹 페이지 설정 -->
-		<link rel="shortcut icon" href="img/icon.png" />
-		<link rel="apple-touch-icon" href="img/icon.png" />
-		<!-- 모바일 웹 페이지 설정 끝 -->
+    <!-- 모바일 웹 페이지 설정 -->
+    <link rel="shortcut icon" href="img/icon.png" />
+    <link rel="apple-touch-icon" href="img/icon.png" />
+    <link rel="apple-touch-startup-image" href="img/startup.jpg">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <!-- 모바일 웹 페이지 설정 끝 -->
 
-		<!--[if lt IE 9]>
-		<script src="js/html5shiv.js"></script>
-		<![endif]-->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <![endif]-->
 
-		<script type="text/javascript">
-			/**
-			 *
-			 *
-			 *
-			 * 여기에 작성하세요
-			 *
-			 *
-			 *
-			 */
-		</script>
-	</head>
-	<body>
-		<!--
+    <script>
+        function open1(){
+            /* 새창(혹은 탭) 띄우기*/
+            window.open('01-open.html');
+        }
 
+        function open2(){
+            /* 클릭할 떄마다 창이 새로 열리는 팝업창 */
+            window.open('01-open.html', '', 'width=300, height=500, scrollbars=no, toolbar=no, menubar=no, status=no, location=no');
+        }
 
+        function open3(url){
+            /* 한번 생성된 팝업창을 지속적으로 재 사용하는 팝업창 */
+            // 팝업의 주소를 파라미터로 전닯받는다.
+            window.open(url, 'mywin', 'witdh=500, height=300, scrollbars=no, toolbar=no, menubar=no, status=no, location=no');
 
-			여기에 작성하세요.
-
-
-		-->
-	</body>
+        }
+    </script>
+</head>
+<body>
+<h1>window 객체</h1>
+<h3>open 메소드 확인</h3>
+<div>
+    <a href="#" onclick="open1(); return false;"> 새 창 열기</a>
+    <a href="#" onclick="open2(); return false;">팝업 창 열기(1)</a>
+    <a href="#" onclick="open3('http://www.naver.com'); return false;">팝업창 열기(2-1)</a>
+    <a href="#" onclick="open3('http://www.daum.net'); return false;">팝업창 열기(2-2)</a>
+</div>
+</body>
 </html>
