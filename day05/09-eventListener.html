@@ -17,28 +17,57 @@
 		
 		<!-- 사용자 스크립트 블록 -->
 		<script type="text/javascript">
-			/**
-			 *
-			 *
-			 *
-			 *  여기에 작성하세요.
-			 *
-			 *
-			 *
-			 */
+                // <h1> 태그를 클릭하였을떄 실행할 함수
+                function h1_click(){
+                    alert("클릭하셧습니다.");
+                }
+
+                function sayHello(){
+                    alert("안녕하세요 JavaScript");
+                }
+
+                function initPage(){
+
+                    var h1 = document.getElementById("hello");
+
+
+                    h1.style.color = "#0000ff";
+                    h1.style.backgroundColor ="#d5d5d5";
+                    h1.style.fontSize = "100px";
+                    h1.style.padding = "15px";
+                    h1.style.margin = "0";
+
+
+                    h1.innerHTML = "Hello JavaScript";
+
+
+                    // 페이지 로드가 완료된 이후이므로 <h1> 태그에 이벤트를 연결할 수 있다.
+                    // ㄷ나, IE와 그 이외의 브라우저를 구별해 주어야 한다.
+                    if(window.addEventListener){
+                        // for Non IE
+                        h1.addEventListener("click", h1_click, false);
+                    } else {
+                        h1.attachEvent("click", h1_click);
+                    }
+                }
+
+                /**/
+            if(window.addEventListener){
+                //for Non IE
+                window.addEventListener("load", sayHello, false);
+                window.addEventListener("load", initPage, false);
+            } else {
+                window.attachEvent("load", sayHello);
+                window.attachEvent("load", initPage);
+            }
+
+
+
 		</script>
 		
 	</head>
 	
 	<body>
-		<!--
-
-
-
-		  여기에 작성하세요.
-			  
-
-
-		 -->
+		<h1 id="hello"></h1>
 	</body>
 </html>

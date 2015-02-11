@@ -22,26 +22,25 @@
 		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 		<!-- 사용자 스크립트 블록 -->
 		<script type="text/javascript">
-			/**
-			 *
-			 *
-			 *
-			 * 여기에 작성하세요.
-			 *
-			 *
-			 *
-			 */
+            $(function(){
+                /* 클릭 이벤트 */
+                $('#input').click(function () {
+                   $('#result').html("Click Event");
+                });
+
+                $('#input').dblclick(function(){
+                   $('#result').html("Double Click Event");
+                });
+            });
 		</script>
 	</head>
 	<body>
-		<!--
-
-
-
-			여기에 작성하세요.
-
-
-		-->
+		<h1>클릭 이벤트 확인하기</h1>
+        <div id="input">
+            Click or Double CLick Here~!!
+        </div>
+        <h2>결과</h2>
+        <div id="result"></div>
 	</body>
 </html>
 
