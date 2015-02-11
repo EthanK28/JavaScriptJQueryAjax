@@ -19,27 +19,16 @@
 		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 		<!-- 사용자 스크립트 블록 -->
 		<script type="text/javascript">
-			/**
-			 *
-			 *
-			 *
-			 *  여기에 작성하세요.
-			 *
-			 *
-			 *
-			 */
+			$(function(){
+                $("#hello").html("Hello jQuery");
+                alert($("#text").html());
+
+            });
 		</script>
 
 	</head>
 	<body>
-		<!--
-
-
-
-		  여기에 작성하세요.
-			  
-
-
-		 -->
+		<h1 id="hello"></h1>
+        <p id="text">안녕하세요. jQuery</p>
 	</body>
 </html>

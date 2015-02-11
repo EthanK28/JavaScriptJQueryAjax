@@ -22,26 +22,39 @@
 		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 		<!-- 사용자 스크립트 블록 -->
 		<script type="text/javascript">
-			/**
-			 *
-			 *
-			 *
-			 * 여기에 작성하세요.
-			 *
-			 *
-			 *
-			 */
+            $(function(){
+                /* 마우스 버튼을 누름 */
+                $('#input').mousedown(function(){
+                   $('#result').html("Mouse Down Event");
+                });
+
+                /* 마우스 버튼을 누른 상태에서 뗌 */
+                $('#input').mouseup(function () {
+                   $('#result').html("Mouse Up Event");
+                });
+
+                /* 마우스 커서가 올라감 */
+                $('#input').mouseenter(function(){
+                   $('#result').html("Mouse Enter Event (onMouseOver)");
+                });
+
+                $('#input').mouseleave(function(){
+                   $('#result').html("Mouse Leave Event (onMouseOut)");
+                });
+
+            });
+
 		</script>
 	</head>
 	<body>
-		<!--
+		<h1>마우스 이벤트 확인하기</h1>
+        <div id="input">
+            Do it in here~!!
+        </div>
+        <h2>결과</h2>
+        <div id="result">
 
-
-
-			여기에 작성하세요.
-
-
-		-->
+        </div>
 	</body>
 </html>
 

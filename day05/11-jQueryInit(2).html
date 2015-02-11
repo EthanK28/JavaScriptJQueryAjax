@@ -19,27 +19,22 @@
 		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 		<!-- 사용자 스크립트 블록 -->
 		<script type="text/javascript">
-			/**
-			 *
-			 *
-			 *
-			 *  여기에 작성하세요.
-			 *
-			 *
-			 *
-			 */
+
+            // (2) initPage 에게는 "$" 라는 객체(혹은 함수) 가 파라미터로 전달되는데,
+            // 이 "$"는 jQuery의 모든 기능ㄹ 담고 있는 jQuery의 최상위 객체이다.
+
+            function initPage($){
+                var h1 = $("#hello");
+
+                //h1.innerHTML = "Hello JavaScript";
+                h1.html("Hello jQuery");
+            }
+
+            jQuery(initPage);
 		</script>
 
 	</head>
 	<body>
-		<!--
-
-
-
-		  여기에 작성하세요.
-			  
-
-
-		 -->
+		<h1 id="hello"></h1>
 	</body>
 </html>

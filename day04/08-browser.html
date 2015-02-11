@@ -16,15 +16,32 @@
 		<![endif]-->
 
 		<script type="text/javascript">
-			/**
-			 *
-			 *
-			 *
-			 * 여기에 작성하세요
-			 *
-			 *
-			 *
-			 */
+			function getWebBrowserName(){
+                // userAgent값을 모두 소문자로 변환하여 변수에 대입
+                var agt = navigator.userAgent.toLocaleLowerCase();
+
+                // 특정 브라우저의이름이 검새되는지 여부를 판별하여,
+                // 특정 이름이 검색될 경우, 브라우저 이름을 의미하는 문자열을 리턴
+
+                if(agt.indexOf("chrome") != -1){
+                    return 'Chrome';
+                } else if (agt.indexOf("opera") != -1){
+                    return 'Opera'
+                } else if (agt.indexOf("firefox")!= -1){
+                    return 'Firefox';
+                } else  if (agt.indexOf("safari")!=-1){
+                    return "Safari";
+                } else if(agt.indexOf("skipstone")!=-1){
+                    return "SkipStone";
+                } else if(agt.indexOf("msie")!=-1 || agt.indexOf("trident") != -1){
+                    return "Internet Explorler";
+                } else {
+                    return "UnKnown";
+                }
+            }
+
+            document.write("<h1>"+getWebBrowserName()+"</h1>");
+
 		</script>
 	</head>
 

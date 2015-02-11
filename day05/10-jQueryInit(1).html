@@ -19,28 +19,41 @@
 		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 		<!-- 사용자 스크립트 블록 -->
 		<script type="text/javascript">
-			/**
-			 *
-			 *
-			 *
-			 *  여기에 작성하세요.
-			 *
-			 *
-			 *
-			 */
+            // <h1> 태그를 클릭하였을떄 실행할 함수
+            function h1_click(){
+                alert("클릭하셧습니다.");
+            }
+
+            function sayHello(){
+                alert("안녕하세요 JavaScript");
+            }
+
+            function initPage(){
+
+                var h1 = document.getElementById("hello");
+
+
+                h1.style.color = "#0000ff";
+                h1.style.backgroundColor ="#d5d5d5";
+                h1.style.fontSize = "100px";
+                h1.style.padding = "15px";
+                h1.style.margin = "0";
+
+
+                h1.innerHTML = "Hello JavaScript";
+
+
+            }
+
+            // Classic Javascript의 onLaod이벤트와 같은 효과 입니다.
+            jQuery(sayHello);
+            jQuery(initPage);
+
 		</script>
 
 	</head>
 	<!-- body태그에 기술되던 Javascript 구문이 분리되었다. -->
 	<body>
-		<!--
-
-
-
-		  여기에 작성하세요.
-			  
-
-
-		 -->
+        <h1 id="hello"></h1>
 	</body>
 </html>

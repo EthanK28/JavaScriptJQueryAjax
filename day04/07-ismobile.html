@@ -16,15 +16,25 @@
 		<![endif]-->
 
 		<script type="text/javascript">
-			/**
-			 *
-			 *
-			 *
-			 * 여기에 작성하세요
-			 *
-			 *
-			 *
-			 */
+			function isMobile(){
+                var tmpUser = navigator.userAgent;
+                var isMobile = false;
+
+                // userAgent 값에 iPhone, iPad,
+
+                if(tmpUser.indexOf("iPhone")>0 || tmpUser.indexOf("iPad")>0 || tmpUser.indexOf("iPod")>0 ||tmpUser.indexOf("Android")>0){
+                    isMobile = true;
+                }
+                return isMobile;
+            }
+
+            var isMobileWeb = isMobile();
+
+            if(isMobileWeb){
+                document.write("<h1>모바일 웹 브라우저로 접속하셔습니다.");
+            } else {
+                document.write("<h1>PC용 웹 브라우저로 접속하셧습니다.</h1>");
+            }
 		</script>
 	</head>
 

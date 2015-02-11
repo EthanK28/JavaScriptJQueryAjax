@@ -17,26 +17,42 @@
 		
 		<!-- 사용자 스크립트 블록 -->
 		<script type="text/javascript">
-			/**
-			 *
-			 *
-			 *
-			 *  여기에 작성하세요.
-			 *
-			 *
-			 *
-			 */
+            function h1_click(){
+                alert("클릭하셧습니다.");
+            }
+
+            function initPage(){
+                // 제어할 대상의 id값 ("hello") 에 의하여 태그요소 (Element)를 가져온 뒤,
+                // h1 이라는 변수에게 대입한다. --> 객체의 생성
+                var h1 = document.getElementById("hello");
+
+                // 가져온 대사의 CSS 속성을 제어한다.
+                // 실제 CSS 코드와는 속성 이름이 조금씩 차이가 나며,
+                // JavaScript에서는 대소문자도 엄격히 구별해야 한다.
+                h1.style.color = "#0000ff";
+                h1.style.backgroundColor ="#d5d5d5";
+                h1.style.fontSize = "100px";
+                h1.style.padding = "15px";
+                h1.style.margin = "0";
+
+                // 객체의 시작태그와 끝태그 사이에 새로운 내용(혹은 요소)을 포함시킨다
+                h1.innerHTML = "Hello JavaScript";
+                // onload 이벤트에 의해서 이 함수가 실행되는 시점에서는
+                // JavaScript에서 <h1> 태그를 인식하는 것이 가능하므로,
+                // <h1> ㅐ그에 대한 이벤트 연결 역시 이 안에서 처리되어야 한다.
+
+                h1.onclick = h1_click;
+            }
+
+            //onload 이벤트 연결
+
 		</script>
 		
 	</head>
-	
-	<!--
 
-
-
-	  여기에 작성하세요.
-		  
-
-
-	 -->
+    <!-- body 태그에 기술되던 JavaScript 구문이 분리 되었다. -->
+	<body>
+        <!-- 제어 대상에게 id 속성 값을 부여한다. -->
+        <h1 id="hello"></h1>
+    </body>
 </html>

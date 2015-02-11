@@ -16,15 +16,17 @@
 		<![endif]-->
 
 		<script type="text/javascript">
-			/**
-			 *
-			 *
-			 *
-			 * 여기에 작성하세요
-			 *
-			 *
-			 *
-			 */
+			var x = parseInt(screen.availWidth/2);
+            var y = parseInt(screen.availHeight/2);
+
+            function getCenterPixel(){
+                var center = new Array(parseInt(screen.availWidth/2),
+                                        parseInt(screen.availHeight/2));
+                return center;
+            }
+
+            var screenCenter = getCenterPixel();
+            document.write("<h1>모니터 화면의 중심 좌효 x="+screenCenter[0]+"px, y="+screenCenter[1]+"px");
 		</script>
 	</head>
 

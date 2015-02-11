@@ -19,26 +19,32 @@
 		<![endif]-->
 
 		<script type="text/javascript">
-			/**
-			 * 
-			 * 
-			 * 
-			 * 여기에 작성하세요.
-			 * 
-			 * 
-			 * 
-			 */
+		    var days = ["일", "월", "화", "수", "목", "금", "토"];
+            var mydate = new Date();
+
+
+            // 년,월,일,시간,분,초를 리턴받기
+            var yy = mydate.getFullYear();
+            // 월은 0이 1월 11일 12월을 의미한다.
+            // 그러므로 1 증가시켜준다
+            var mm = mydate.getMonth() +1;
+            var dd = mydate.getDate();
+
+            // 0 일요일 ~6 = 토요일의 값이 리턴된다.
+            var i = mydate.getDay();
+            console.log(i);
+            var day = days[i];
+
+            var hh = mydate.getHours();
+            var mi = mydate.getMinutes();
+            var ss = mydate.getSeconds();
+
+            var result = yy + "-"+mm+ "-" + dd + " " + day + "요일 " +hh+":"+mi+":"+ss;
+            document.write("<h1>"+result+"</h1>");
 		</script>
 	</head>
 
 	<body></body>
 </html>
-
-
-
-
-
-
-
 
 

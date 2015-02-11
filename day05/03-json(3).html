@@ -16,15 +16,31 @@
 		<![endif]-->
 
 		<script type="text/javascript">
-			/**
-			 *
-			 *
-			 *
-			 *  여기에 작성하세요.
-			 *
-			 *
-			 *
-			 */
+			var korea = {
+                "seoul" : {"people" : 54321, "desc": "한국의 수도"},
+                "jaeju" : {"people" :12345, "desc": "자연이 아름다운 섬"}
+            };
+
+            // 제주도의 섦여에 접근하는 경우
+            var description = korea.jaeju.desc;
+
+            var keyword_rank = {
+                "r1" : {"k" : "HTML5", "s" : "+", "v":178},
+                "r2" : {"k" : "CSS3", "s" : "new", "v":150},
+                "r3" : {"k" : "jQuery", "s" : "+", "v" :135}
+            };
+
+            // JSON 데이터의 내용을 목록정의 태그로 ㄱ구성
+            var tag = "<h1>인기 검색어 순위 </h1><ul>";
+                tag += "<li>"+keyword_rank.r1.k + "(" + keyword_rank.r1.s + keyword_rank.r1.v+")";
+                tag += "<li>"+keyword_rank.r2.k + "(" + keyword_rank.r2.s + keyword_rank.r2.v+")";
+                tag += "<li>"+keyword_rank.r3.k + "(" + keyword_rank.r3.s + keyword_rank.r3.v+")"
+            tag+="</ul>";
+
+            // 구성한 내용을 화면에 출력
+            document.write(tag);
+
+
 		</script>
 	</head>
 

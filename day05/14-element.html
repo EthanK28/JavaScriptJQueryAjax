@@ -60,27 +60,53 @@
 		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 		<!-- 사용자 스크립트 블록 -->
 		<script type="text/javascript">
-			/**
-			 *
-			 *
-			 *
-			 *  여기에 작성하세요.
-			 *
-			 *
-			 *
-			 */
+			$(function(){
+               // id 값에 의한 접근, 가장 일반적인 방법이다.
+                $("#title").html("두 번째 제목");
+
+                // 자식 셀렉터의 사용
+                $("div#container > h1#title").html("제목입니다.");
+
+                // 자손 셀렉터의 사용
+                $("div#container div.box").html("안녕하세요");
+
+                // 자손 셀렉터를 사용하여 모든 <li> 태그를 지정
+                $("ul > li").html("목록입니다.");
+
+                // 두번째 <li> 태그만 지정한다. :eq(n)은 0부터 카운트한다.
+                $("ul > li:eq(1)").html("jQuery 고유의 방식도 있습니다.");
+
+                // 복수 요소를 지정한다
+                $("p, pre").html("다중요소 선택");
+
+                // name 속성이 source 학목만 지정
+                $("pre[name='source']").html("CSS2의 선택자");
+
+                // <li> 태그의 첫 번쨰 항목과 마지막 항목
+                $("ul > li:first-child").html("First-Child");
+                $("ul > li:last-child").html("last-Child");
+            });
+
+
 		</script>
 	</head>
 	<body>
-		<!--
-
-
-
-		  여기에 작성하세요.
-			  
-
-
-		 -->
+        <div id="container">
+            <h1 id="title"></h1>
+            <div class="box"></div>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <p>
+        </p>
+        <pre></pre>
+        <pre name='source'></pre>
 	</body>
+
 </html>
 

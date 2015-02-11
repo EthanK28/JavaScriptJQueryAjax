@@ -24,15 +24,39 @@
 
 		<!-- 사용자 스크립트 블록 -->
 		<script type="text/javascript">
-			/**
-			 * 
-			 * 
-			 * 
-			 * 여기에 작성하세요.
-			 * 
-			 * 
-			 * 
-			 */
+			$(function(){
+               $("#mybtn").click(function(){
+                   $.ajax({
+                       url:"ajax/xml/04.xml",
+                       type: "get",
+                       dataType: "xml",
+                       timeout: 30000,
+                       success: function(xml){
+                           $(xml).find("subject").each(function(){
+                               // 각 개별 요소에 속해 있는 데이터 추출
+                               var title = $(this).find("title").text();
+                               var time = $(this).find("time").text();
+                               var teacher = $(this).find("teacher").text();
+
+                               // 출력을 위한 동적 요소의 생건
+                               var div = $("<div>");
+                               var p1 = $("<p>").html(title);
+                               var p2 = $("<p>").html(time);
+                               var p3 = $("<p>").html(teacher);
+
+                               // 조립과 출력
+                               div.append(p1).append(p2).append(p3);
+                               $("#result").append(div);
+                               $("#result").append("<hr />");
+
+                           });
+                       },
+                       error: function(xhr, textStatus, errorThrown){
+                           $("div").html("<div>"+textStatus+"(HTTP-"+xhr.status+"/"+")</div>");
+                       }
+                   });
+               });
+            });
 		</script>
 
 	</head>
