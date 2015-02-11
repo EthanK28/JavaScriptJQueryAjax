@@ -16,40 +16,67 @@
 		<![endif]-->
 
 		<style type="text/css">
-			/**
-			 *
-			 *
-			 *
-			 * 여기에 작성하세요
-			 *
-			 *
-			 *
-			 */
+            ul {
+                padding: 0;
+                margin: 0;
+                width: 670px;
+                list-style: none;
+            }
+
+            /* 목록의 가로 배치 */
+            li {
+                float: left;
+            }
+
+            /* float 속성 해제 */
+            ul:after {
+                content: '';
+                display: block;
+                float:none;
+                clear:both;
+            }
+
+            /* 이미지 테두리 제거 */
+            img {
+                border:none;
+            }
 		</style>
 
 		<!-- 사용자 스크립트 블록 -->
 		<script type="text/javascript">
-			/**
-			 *
-			 *
-			 *
-			 * 여기에 작성하세요
-			 *
-			 *
-			 *
-			 */
+            //이미지 파일의 경로와 처리할 대상 요소의 id 값을 파라미터로 전달 받는다
+            function changeImage(image, id){
+                // 파라미터로 전달받은 요소의 id 값을 사용하여 image 객체를 만든다
+                // 그 객체의 src 속성 값에 파라미터로 전달된 이미지 경로를 대입하여,
+                // 표시 이미지를 변경한다.
+                document.getElementById(id).src = image;
+            }
 		</script>
 
 	</head>
 
 	<body>
-		<!--
-
-
-
-			여기에 작성하세요.
-
-
-		-->
+		<ul>
+            <li>
+                <a href="#" onmouseover="changeImage('img/jquery_on.jpg','jquery');" onmouseout="changeImage('img/jquery.jpg', 'jquery');">
+                    <img id="jquery" src="img/jquery.jpg" alt=""/>
+                </a>
+            </li>
+            <li>
+                <a href="#" onmouseover="changeImage('img/javascript_on.jpg','js');" onmouseout="changeImage('img/javascript.jpg', 'js');">
+                    <img id="js" src="img/javascript.jpg" alt=""/>
+                </a>
+            </li>
+            <li>
+                <a href="#" onmouseover="changeImage('img/css_on.jpg','css');" onmouseout="changeImage('img/css.jpg', 'css');">
+                    <img id="css" src="img/css.jpg" alt=""/>
+                </a>
+            </li>
+            <li>
+                <a href="#" onmouseover="changeImage('img/html_on.jpg','html');" onmouseout="changeImage('img/html.jpg', 'html');">
+                    <img id="html" src="img/html.jpg" alt=""/>
+                </a>
+            </li>
+        </ul>
 	</body>
 </html>

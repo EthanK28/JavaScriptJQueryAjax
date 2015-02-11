@@ -16,40 +16,68 @@
 		<![endif]-->
 
 		<style type="text/css">
-			/**
-			 *
-			 *
-			 *
-			 * 여기에 작성하세요
-			 *
-			 *
-			 *
-			 */
+            .thumnail {
+                padding: 0;
+                margin: 0;
+                list-style: none;
+                width: 120px;
+                float:left;
+            }
+
+            .thumnail li {
+                width: 100px;
+                height: 100px;
+                padding: 5px 10px;
+            }
+
+            .thumnail img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .view {
+                float:left;
+                width: 500px;
+                height: 320px;
+                padding: 5px 0;
+            }
+
+            .view img {
+                width: 500px;
+                height: 320px;
+            }
 		</style>
 
 		<script type="text/javascript">
-			/**
-			 *
-			 *
-			 *
-			 * 여기에 작성하세요
-			 *
-			 *
-			 *
-			 */
+			function setImage(index){
+                // 이미지의 경로를 담고 있는 배열
+                var image_list = ['img/1.jpg', 'img/2.jpg', 'img/3.jpg'];
+
+                // 이미지 요소의 객체 호화
+                var image = document.getElementById("target");
+
+                image.src = image_list[index];
+            }
 		</script>
 	</head>
 
 	<body>
 		<!-- 각 이미지를 포함하는 링크를 클릭했을 경우, setImage 함수 호출 -->
-		<!--
+   		<ul class="thumnail">
+            <li>
+                <a href="#" onclick="setImage(0); return false;"><img src="img/1.jpg" alt=""/></a>
+            </li>
+            <li>
+                <a href="#" onclick="setImage(1); return false;"><img src="img/2.jpg" alt=""/></a>
+            </li>
+            <li>
+                <a href="#" onclick="setImage(2); return false;"><img src="img/3.jpg" alt=""/></a>
+            </li>
+        </ul>
 
-
-
-			여기에 작성하세요.
-
-
-		-->
+        <div class="view">
+            <img src="img/1.jpg" id="target" alt=""/>
+        </div>
 	</body>
 </html>
 
