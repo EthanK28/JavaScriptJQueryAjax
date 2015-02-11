@@ -101,15 +101,71 @@
 		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 		<!-- 사용자 스크립트 블록 -->
 		<script type="text/javascript">
-			/**
-			 * 
-			 * 
-			 * 
-			 * 여기에 작성하세요.
-			 * 
-			 * 
-			 * 
-			 */
+		    $(function() {
+                // #user_name 요소와 #user_password 두 요소에 대한 focus, blur 이벤트 처리
+                // bind 용법 사용합
+                $("#user_name", "#user_password").bind({
+                   "focus":function(){
+                       $(this).addClass("active");
+                   },
+                    "blur" : function(){
+                        $(this).removeClass("active");
+                    }
+                });
+
+                // 폼에 대한 submit 이벤트 처리 --> 입력값 여부 검사를 수행한다.
+                $("#login").bind("submit", function(){
+                    /* 입력 여부 검사 */
+                        if(!$("#user_name").val()){
+                            alert("아이디를 입력하세요!");
+                            $("#user_name").focus();
+                            return false;
+                        }
+
+                        if(!$("#user_password").val()){
+                            alert("비밀번호를 입력하세요.");
+                            $("#user_password").focus();
+                            return false;
+                        }
+
+                        // 로딩처리 보여주기
+                        $("#login .loader").show();
+
+                        /* 로그인 성공 가정한 XML 파일 */
+                        //var url = "ajax/login/login_ok.xml";
+
+                        //var url = "ajax/login/login_id.xml";
+                        var url = "ajax/login/login_id.xml";
+
+                        /* ajax 로그인 처리 */
+                        var ajax = $.post(url, $(this).serialize(), function(data) {
+                            // XML에서 result 태그와 message 태그의 내용 추출
+                            var result = $(data).find("result").text();
+                            var message = $(data).find("message").text();
+
+                            // result 값은 boolean형으로 변환
+                            var result_value = eval(result);
+
+                            //결과 메시지 출력
+                            alert(message);
+
+                            // 결과에 따른 후속 처리
+                            if (result_value) {
+                                // 로그인 성공시 처리할 부부분
+                            } else {
+                                // 로그인 실패시 처리할 부부
+                            }
+
+                        }).fail(function(){
+                            alert("로그인에 실패하셧습니다.");
+                        }).always(function(){
+                            $("#login .loader").hide();
+                        });
+
+                        return false;
+                    });
+
+            });
 		</script>
 	</head>
 	<body>
