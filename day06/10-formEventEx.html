@@ -23,26 +23,170 @@
 		
 		<!-- 사용자 스크립트 블록 -->
 		<script type="text/javascript">		
-			/**
-			 *
-			 *
-			 *
-			 * 여기에 작성하세요.
-			 *
-			 *
-			 *
-			 */
+            $(function(){
+                // id 속성이 join인 <form> 태그 안의 submit 버튼을 누른 경우
+                 $("#join").submit(function(){
+                     /* 아이디 입력검사 */
+                     // $(input요소).val()는 사용자가 입력한 값을 리턴한다.
+
+                     event.preventDefault();
+
+                     var user_id = $("input[name='user_id']").val();
+
+                     if(!user_id){
+                         alert("아이디를 입력하세요.");
+                         $("input[name='user_id']").focus();
+                         return false;
+                     }
+
+                     /* 비밀번호 입력 검사 */
+                     if(!$("input[name='user_pw']").val()){
+                        alert("비밀번호를 입력해주세요");
+                         $("input[name='user_pw']").focus();
+                         return false;
+                     }
+
+                     /* 주민번호 입력 검사 */
+                     if(!$("input[name='user_pw']").val()){
+                         alert("주민번호를 입력하세요");
+                         $("input[name='user_pw']").focus();
+                     }
+
+                     /* 라디오버튼 선택여부 검사 */
+                     if(!$("input[name='gender']").is(":checked")){
+                         alert("성별을 선택해 주세요");
+                         $("input[name='gender']:eq(0)").focus();
+                         return false;
+                     }
+
+                     /* 이메일 주소 입력 여부 검사 */
+                     if(!$("input[name='email']").val()){
+                         alert("이메일 주소를 입력하세요");
+                         $("input[name='email]'").focus();
+                         return false;
+                     }
+
+                     /* 홈페이지 주소 입력여부 검사 */
+                     if(!$("input[name='url']").val()){
+                         alert("홈페이지 주소를 입력하세요.");
+                         $("input[name='url']").focus();
+                         return false;
+                     }
+
+                     /* 핸드폰 번호 입력여부 검사 */
+                     if(!$("input[name='hpno']").val()){
+                         alert("핸드폰 번호를 입력하세요");
+                         $("input[name='hpno']").focus();
+                         return false;
+                     }
+
+                     /* 체크 박스 선택 여부 검사 */
+                     if(!$("input[name='hobby']").is(":checked")){
+                         alert("취미를 선택해주세요");
+                         $("input[name='hobby']:eq(0)").focus();
+                         return false;
+                     }
+
+                     /* selectbox 선택여부 검사 */
+                     if($("select[name='job'] > option:selected").index()<1){
+                         alert("직업을 선택해주세요");
+                         $("select[name='job']").focus();
+                         return false;
+                     }
+
+                     /* 입력 내용을 화면에 출력해 봅시다 */
+                     var user_id = $("input[name='user_id']").val();
+                     var user_pw = $("input[name='user_pw']").val();
+                     var juminno = $("input[name='juminno']").val();
+                     var gender = $("input[name='gender']").val();
+                     var email = $("input[name='email']").val();
+                     var url = $("input[name='url']").val();
+                     var hpno = $("input[name='hpno']").val();
+                     var job = $("select[name='job'] > option:selected").val();
+
+                     // 체크박스의 선택항목 값들을 추출
+                     var hobby = $("input[name='hobby']:checked");
+
+                     // 추출된 값을 누적하여 저장할 문자열 변수
+                     var select_hobby = "";
+
+                     // hobby의 개체 수 만큼 반복적으로 function() 이 실행된다
+                     hobby.each(function(){
+                         // 각 반복되는 처리 안엥서 $(this)는 hobby 안에 포함된 개체이다.
+                         // --> 체크된 n번째 체크박스임
+                         // 추출된 값을 누적 저장한다.
+                         select_hobby += $(this).val() + ",";
+                     });
+
+                     // 출력할 문자열 만들기
+                     var result = "<ul>";
+                     result += "<li>만들기: "+user_id+"</li>";
+                     result += "<li>비밀번호: "+user_pw+"</li>";
+                     result += "<li>주민번호: "+juminno+"</li>";
+                     result += "<li>성별: "+gender+"</li>";
+                     result += "<li>이메일: "+email+"</li>";
+                     result += "<li>홈페이지: "+url+"</li>";
+                     result += "<li>핸드폰번호: "+hpno+"</li>";
+                     result += "<li>취미: "+select_hobby+"</li>";
+                     result += "<li>직업: "+job+"</li>";
+                     result += "</ul>";
+
+                     $("body").html(result);
+
+                     return false;
+
+
+
+                 });
+            });
 		</script>
 	</head>
 	<body>
-		<!--
+		<h1>회원가입</h1>
 
+        <form name="form1" id="join">
+            <div id="input">
+                <h3>아이디</h3>
+                <input type="text" name="user_id"/>
 
+                <h3>비밀번호</h3>
+                <input type="password" name="user_pw"/>
 
-			여기에 작성하세요.
+                <h3>주민번호</h3>
+                <input type="password" name="juminno"/>
 
+                <h3>성별</h3>
+                <label><input type="radio" name="gender" value="남자"/>남자</label>
+                <label><input type="radio" name="gender" value="여자"/>여자</label>
+                
+                <h3>이메일 주소</h3>
+                <input type="email" name="email"/>
+                
+                <h3>URL</h3>
+                <input type="url" name="url"/>
+                
+                <h3>핸드폰번호</h3>
+                <input type="tel" name="hpno"/>
+                
+                <h3>취미</h3>
+                <label><input type="checkbox" name="hobby" value="축구"/>축구</label>
+                <label><input type="checkbox" name="hobby" value="농구"/>농구</label>
+                <label><input type="checkbox" name="hobby" value="야구"/>야구</label>
 
-		-->
+                <h3>직업</h3>
+                <select name="job" id="">
+                    <option></option>
+                    <option value="프로그래머">프로그래머</option>
+                    <option value="퍼블리셔">퍼블리셔</option>
+                    <option value="디자이너">디자이너</option>
+                    <option value="기획">기획</option>
+                </select>
+
+                <input type="submit" value="회원가입" class="myButton"/>
+                <input type="reset" value="다시작성" class="mybutton"/>
+            </div>
+        </form>
+
 	</body>
 </html>
 

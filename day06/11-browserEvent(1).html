@@ -22,26 +22,16 @@
 		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 		<!-- 사용자 스크립트 블록 -->
 		<script type="text/javascript">
-			/**
-			 *
-			 *
-			 *
-			 * 여기에 작성하세요.
-			 *
-			 *
-			 *
-			 */
+            $(function(){
+                $(window).resize(function(){
+                    $("#result").html("<p>"+$(window).width()+" x "+$(window).height()+"</p>");
+                });
+            });
 		</script>
 	</head>
 	<body>
-		<!--
-
-
-
-			여기에 작성하세요.
-
-
-		-->
+		<h1>창 크기 조절 이벤트</h1>
+        <div id="result"></div>
 	</body>
 </html>
 

@@ -22,7 +22,14 @@
 		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 		<!-- 사용자 스크립트 블록 -->
 		<script type="text/javascript">
+            $(function(){
+               var count = 0;
 
+                $("#input > input[type='text']").keypress(function(){
+                   count++;
+                    $("#result").html("key count: " + count);
+                });
+            });
 		</script>
 	</head>
 	<body>
@@ -30,6 +37,8 @@
         <div id="input">
             <input type="text"/>
         </div>
+        <h2>결과</h2>
+        <div id="result"></div>
 	</body>
 </html>
 

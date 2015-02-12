@@ -22,26 +22,23 @@
 		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 		<!-- 사용자 스크립트 블록 -->
 		<script type="text/javascript">
-			/**
-			 *
-			 *
-			 *
-			 * 여기에 작성하세요.
-			 *
-			 *
-			 *
-			 */
+			$(function(){
+               $(window).scroll(function(){
+                    $("#console").html("스크롤이 이동되었습니다");
+
+                   setTimeout(function(){
+                      // 1.5 초 후에 #console요소의 내용을 지운다.
+                       $("#console").html("");
+                   }, 1500);
+               });
+            });
 		</script>
 	</head>
 	<body>
-		<!--
-
-
-
-			여기에 작성하세요.
-
-
-		-->
+		<div class="gradientStyle">
+            <h1>스크롤 이벤트</h1>
+            <div id="console"></div>
+        </div>
 	</body>
 </html>
 

@@ -22,26 +22,20 @@
 		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 		<!-- 사용자 스크립트 블록 -->
 		<script type="text/javascript">
-			/**
-			 *
-			 *
-			 *
-			 * 여기에 작성하세요.
-			 *
-			 *
-			 *
-			 */
+            $(function(){
+                $("#img").error(function(){
+                    ///alert("이미지를 찾을 수 없습니다.");
+                }).each(function(){
+                    alert("이미지를 찾을 수 없습니다.");
+                });
+            });
 		</script>
 	</head>
 	<body>
-		<!--
-
-
-
-			여기에 작성하세요.
-
-
-		-->
+		<h1>에러 이벤트</h1>
+        <!-- 실제로 존재하지 않는 파일입니다. -->
+        <!-- img id="img" src="img/undefined.jpg">-->
+        <img src="img/undefinedjpg" id="img" alt=""/>
 	</body>
 </html>
 
