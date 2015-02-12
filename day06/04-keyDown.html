@@ -22,18 +22,35 @@
 		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 		<!-- 사용자 스크립트 블록 -->
 		<script type="text/javascript">
-			
+            $(function(){
+               // 눌러진 횟수를 카운트 하기 위한 변수 선언
+                var down_count = 0;
+                // 떨어진 횟수를 카운트 하기 위한 변수 선언
+                var up_count =0;
+
+                /* 키가 눌러진 경우 혹은 누르고 있는 동안*/
+                $("#input > input[type='text']").keydown(function(){
+                    // 횟수를 1추가
+                    down_count++;
+                    $("#result").html("down_count: "+down_count+" / up_count: "+up_count);
+                });
+
+                /* 키가 떨어진 경우 */
+                $("#input > input[type='text']").keyup(function(){
+                    // 횟수를 증가
+                    up_count++;
+                    $("#result").html("down_count: "+down_count+" /up_count: "+up_count);
+                });
+            });
 		</script>
 	</head>
 	<body>
-		<!--
-
-
-
-			여기에 작성하세요.
-
-
-		-->
+		<h1>Key 이벤트 확인하기</h1>
+        <div id="input">
+            <input type="text"/>
+        </div>
+        <h2>결과</h2>
+        <div id="result"></div>
 	</body>
 </html>
 
