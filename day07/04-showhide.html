@@ -19,30 +19,37 @@
 		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 		<!-- 사용자 스크립트 블록 -->
 		<script type="text/javascript">
-			/**
-			 *
-			 *
-			 *
-			 *
-			 * 여기에 작성하세요.
-			 *
-			 *
-			 *
-			 *
-			 */
+			$(function () {
+               /* 첫번째 input 버튼을 누른 경우 */
+                // :eq(n)은 특정 셀렉터 여러 개의 복수 요소를 지정한 경우, 그 중에서 하나만을 지정하는
+                // jQuery 전용 셀렉터이다. --> "0"부터 카운트 된다
+                $("#sh > input:eq(0)").click(function(){
+                    $("#sh > div").show(200);
+                });
+
+                /* 두번째 input 버튼을 누른 경우 */
+                $("#sh > input:eq(1)").click(function(){
+                    $("#sh > div").hide(200);
+                });
+
+                /* 세 번쟤 input 버튼을 누른 경우 */
+                $("#sh > input:eq(2)").click(function(){
+                   $("#sh > div").toggle(200);
+                });
+            });
 		</script>
 
 	</head>
 
 	<body>
-		<!--
-
-
-
-			여기에 작성하세요.
-
-
-
-		-->
+		<h1>show/hide</h1>
+        <div id="sh">
+            <input type="button" value="보이기"/>
+            <input type="button" value="숨기기"/>
+            <input type="button" value="토글"/>
+            <div>
+                <img src="img/1.jpg" width="300px" height="200px"/>
+            </div>
+        </div>
 	</body>
 </html>

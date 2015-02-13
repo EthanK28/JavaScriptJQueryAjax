@@ -22,26 +22,21 @@
 		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 		<!-- 사용자 스크립트 블록 -->
 		<script type="text/javascript">
-			/**
-			 *
-			 *
-			 *
-			 * 여기에 작성하세요.
-			 *
-			 *
-			 *
-			 */
+            $(function(){
+                var index = 1;
+                $("#img").click(function(){
+                   // index가 1~3을 순환하는 계산
+                    index = (index%3)+1;
+                    //이미지 파일의 변경
+                    $(this).attr("src", "img/"+index+".jpg");
+                });
+            });
 		</script>
 	</head>
 	<body>
-		<!--
-
-
-
-			여기에 작성하세요.
-
-
-		-->
+		<h1>속성 제어</h1>
+        <p>클릭하세요</p>
+        <img src="img/1.jpg" id="img" alt="이미지"/>
 	</body>
 </html>
 

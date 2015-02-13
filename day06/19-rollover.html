@@ -16,42 +16,70 @@
 		<![endif]-->
 
 		<style type="text/css">
-			/**
-			 *
-			 *
-			 *
-			 * 여기에 작성하세요.
-			 *
-			 *
-			 *
-			 */
+			ul {
+                padding: 0;
+                margin:0;
+                width: 670px;
+                list-style: none;
+            }
+
+            li {
+                float: left;
+            }
+
+            ul:after {
+                content: '';
+                display: block;
+                float: none;
+                clear: both;
+            }
+
+            img {
+                border:none;
+            }
 		</style>
 
 		<!-- jQuery Framework 참조하기 -->
 		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 		<!-- 사용자 스크립트 블록 -->
 		<script type="text/javascript">
-			/**
-			 *
-			 *
-			 *
-			 * 여기에 작성하세요.
-			 *
-			 *
-			 *
-			 */
+			$(function(){
+                $("img[src='img/jquery.jpg']").hover(function(){
+                   $(this).attr("src", "img/jquery_on.jpg");
+
+                }, function(){
+                    $(this).attr("src", "img/jquery.jpg");
+                });
+
+                $("img[src='img/javascript.jpg']").hover(function(){
+                    $(this).attr("stc", "img/javascript_on.jpg");
+                }, function(){
+                    $(this).attr("src", "img/javascript.jpg");
+                });
+
+                $("img[src='img/css.jpg']").hover(function(){
+                    $(this).attr("src", "img/css_on.jpg");
+                }, function(){
+                    $(this).attr("src", "img/css.jpg");
+                });
+
+                $("img[src='img/html.jpg']").hover(function(){
+                   $(this).attr("src", "img/html_on.jpg");
+                }, function(){
+                    $(this).attr("src", "img/html.jpg");
+                });
+
+            });
 		</script>
 
 	</head>
 
 	<body>
-		<!--
-
-
-
-			여기에 작성하세요.
-
-
-		-->
+    <ul>
+        <li><a href="#"><img src="img/jquery.jpg" alt="jQuery"/></a></li>
+        <li><a href="#"><img src="img/javascript.jpg" alt="javascript"/></a></li>
+        <li><a href="#"><img src="img/css.jpg" alt="css"/></a></li>
+        <li><a href="#"><img src="img/html.jpg" alt="HTML"/></a></li>
+    </ul>
 	</body>
 </html>
