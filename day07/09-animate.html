@@ -17,46 +17,70 @@
 
 		<!-- 이 예제의 디자인을 위한 코드 입니다. -->
 		<style type="text/css">
-			/**
-			 *
-			 *
-			 *
-			 *
-			 * 여기에 작성하세요.
-			 *
-			 *
-			 *
-			 *
-			 */
+
 		</style>
 		<!-- jQuery Framework 참조하기 -->
 		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 		<!-- 사용자 스크립트 블록 -->
 		<script type="text/javascript">
-			/**
-			 *
-			 *
-			 *
-			 *
-			 * 여기에 작성하세요.
-			 *
-			 *
-			 *
-			 *
-			 */
+                $(function(){
+                    $("button:eq(0)").click(function(){
+                        // 새롭게 내용을 코딩
+                        $("#animation-area").html("<div id='box'></div>");
+                    });
+
+                    $("button:eq(1)").click(function(){
+                        // CSS 속성은 JSON 형식으로 표시된다
+                        $("#box").animate({
+                            'left':'250px'
+                        }, 1000, 'swing', function(){
+                            alert('애니메이션이 종료되었습니다');
+                        });
+
+                        /* 좌측으로부터 250px 이동하고, 높이와 넓이를 150px 으로 처리 */
+                        $("button:eq(2)").click(function(){
+                            //JSON 형식의 CSS 속성을 여러 개 나열 할 수 있으며,
+                            //CSS 속성을 제외한 나머지 파라미터들은 생략 가능하다
+                            $("#div").animate({
+                                left : '250px',
+                                height: '150px',
+                                width : '150px'
+                            });
+                        });
+
+                        $("button:eq(3)").click(function(){
+                            $("div").animate({
+                                left : '+=50px',
+                                height : '+=50px',
+                                width : '+=50px'
+                            }, 300);
+                        });
+
+                        $("button:eq(4)").click(function(){
+                            var div = $("#box");
+
+                            div.animate({height: '300px'}, 1000);
+                            div.animate({width: '300px'}, 500);
+                            div.animate({height: '100px'}, 800);
+                            div.animate({width: '100px'}, 300);
+                        });
+                    });
+                });
 		</script>
 
 	</head>
 
 	<body>
-		<!--
+	    <h1>Animate</h1>
+        <button>Reset</button>
+        <button>Ani1</button>
+        <button>Ani2</button>
+        <button>Ani3</button>
+        <button>Ani4</button>
+        <div id="animateon-area">
+            <div id="box"></div>
+        </div>
 
 
-
-			여기에 작성하세요.
-
-
-
-		-->
 	</body>
 </html>
