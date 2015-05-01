@@ -16,47 +16,109 @@
 		<![endif]-->
 
 		<style type="text/css">
-			/**
-			 *
-			 *
-			 *
-			 *
-			 * 여기에 작성하세요.
-			 *
-			 *
-			 *
-			 *
-			 */
+			body {
+                background: #252422;
+            }
+
+            ul {
+                padding: 0;
+                margin: 50px auto;
+                list-style: none;
+                width: 800px
+            }
+
+            .title {
+                padding: 0;
+                margin: 0;
+            }
+
+            .title > a {
+                display: block;
+                padding-top: 12px;
+                font-size: 14px;
+                text-indent: 12px;
+                text-decoration: none;
+                font-weight: bold;
+                color: white;
+                height: 23px;
+                background: url("img/background.jpg");
+            }
+
+            /* 현재 활성화된 요소를 적용할 배경이미지 지정 */
+            .selected {
+                background: url('img/background-selected.jpg') !important;
+            }
+
+            /* 내용 영역 */
+            .content {
+                margin: 0;
+                background: #D4D0C8;
+                padding: 10px;
+                height: 200px;
+                overflow-y: auto;
+            }
+
 		</style>
 
 		<!-- jQuery Framework 참조하기 -->
 		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 		<!-- 사용자 스크립트 블록 -->
 		<script type="text/javascript">
-			/**
-			 *
-			 *
-			 *
-			 *
-			 * 여기에 작성하세요.
-			 *
-			 *
-			 *
-			 *
-			 */
+            $(function(){
+                /* 초기화 정리 */
+                // 첫 번째 항목이 펼쳐져 있도록 처리한다
+                // 탭의 내용은 첫번째 항목 안의 <a> 태그가 가리키는 txt 파일을 읽어와서 출력시키낟$
+                $(".collapsible:eq(0) > .content").load($(".collapsible:eq(0) .title a").attr("href"));
+                
+                // 첫번째 항목이 <a>에게 selected 클래스를 적용시켜 준다
+                $(".collapsible:eq(0) a").addClass("selected");
+                
+                // 첫번째 항목 이외의 나머지 항목들 안에 있는 content를 숨긴다. 
+                $(".collapsible").not(":eq(0)").find(".content").hide();
+
+                 /* 링크에 대한 클릭 이벤트 처리 */
+                $(".collapsible .title a").click(function(){
+                    // 클릭된 자기 자신은 selected 클래스를 적용한다. 만약 적용된 상ㅇ태라면 제거한다.
+                    $(".collapsible .title a").not(this).removeClass("selected");
+
+                    // 펼칠 대상을 검색
+                    var target = $(this).parents(".collapsible").find(".content");
+
+                    // 나머지 대상을 검색
+                    var other = $(".collapsible .title a").not(this).parents(".collapsible").find(".content");
+
+                    //애니메이션으로 열고 닫기 처리
+                    target.slideToggle(300);
+                    other.slideUp(300);
+
+                    //현재 클릭된 항목에 대한 내용이 열려진 상태라면, 내용을 load() 함수로 불러와서 출력
+                    if(target.css("display")!="none") {
+                        target.load($(this).attr("href"));
+                        target.parent().find(".title").addClass("selected");
+                    }
+
+                    return false;
+                });
+
+            });
 		</script>
 
 	</head>
 
 	<body>
-		<!--
-
-
-
-			여기에 작성하세요.
-
-
-
-		-->
+		<ul>
+            <li class="collapsible">
+                <h2 class="title selected"><a href="txt/html5.txt">HTML5</a></h2>
+                <p class="content"></p>
+            </li                                                                                              >
+            <li class="collapsible">
+                <h2 class="title"><a href="txt/jquery.txt">JQuery</a></h2>
+                <p class="content"></p>
+            </li>
+            <li class="collapsible">
+                <h2 class="title"><a href="txt/bootstrap.txt">Bootstrap3</a></h2>
+                <p class="content"></p>
+            </li>
+        </ul>
 	</body>
 </html>

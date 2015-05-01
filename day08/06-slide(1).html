@@ -28,37 +28,31 @@
 		<!-- jQuery Framework 참조하기 -->
 		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 		<!-- slide Plugin -->
-		<!--
-			여기에 작성하세요.
-		 -->
+        <script src="js/jquery.slides.min.js"></script>
 		<!-- plugin CSS -->
+        <link rel="stylesheet" type="text/css" href="css/navigation.css"/>
 		<!--
 			여기에 작성하세요.
 		 -->
 		<!-- 사용자 정의 스크립트 부분 -->
 		<script type="text/javascript">
-			/**
-			 *
-			 *
-			 *
-			 * 여기에 작성하세요.
-			 *
-			 *
-			 *
-			 */
+			$(function(){
+                $('#slides').slidesjs({
+                   width: 800,
+                    height: 300
+                });
+            });
 		</script>
 	</head>
 	<body>
-		<!--
-
-
-
-
-			여기에 작성하세요.
-
-
-
-
-		 -->
+		<h1 class="title">Image Slider (1)</h1>
+        <div class="example">
+            <div id="slides">
+                <img src="img/slide-1.jpg" alt=""/>
+                <img src="img/slide-2.jpg" alt=""/>
+                <img src="img/slide-3.jpg" alt=""/>
+                <img src="img/slide-4.jpg" alt=""/>
+            </div>
+        </div>
 	</body>
 </html>

@@ -22,41 +22,21 @@
 		<!-- jQuery Framework 참조하기 -->
 		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 		<!-- placeholder Plugin -->
-		<!--
-
-
-
-
-			여기에 작성하세요.
-
-
-
-
-		 -->
+        <script src="js/jquery.placeholder.js"></script>
 		<!-- 사용자 스크립트 블록 -->
 		<script type="text/javascript">
-			/**
-			 *
-			 *
-			 *
-			 * 여기에 작성하세요.
-			 *
-			 *
-			 *
-			 */
+			$(function(){
+                // 모든 input 태그와 textarea 태그에 대하여 placeholder() 확장ㅎ마수 사용
+                $('input, textarea').placeholder();
+            });
 		</script>
 	</head>
 	<body>
-		<!--
-
-
-
-
-			여기에 작성하세요.
-
-
-
-
-		 -->
+		<h1 class="title">Placeholder Example</h1>
+        <div class="example">
+            <input type="text" name="user_name" palceholder="이름을 입력하세요"/>
+            <br/>
+            <textarea name="memo" placeholder="내용을 입력하세요"></textarea>
+        </div>
 	</body>
 </html>

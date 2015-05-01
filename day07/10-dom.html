@@ -16,45 +16,45 @@
 		<![endif]-->
 		
 		<style type="text/css">
-			/**
-			 *
-			 *
-			 *
-			 *
-			 * 여기에 작성하세요.
-			 *
-			 *
-			 *
-			 *
-			 */
+			td {
+                width: 100px;
+                height: 100px;
+                text-align: center;
+            }
 		</style>
 		
 		<!-- jQuery Framework 참조하기 -->
 		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 		<!-- 사용자 스크립트 블록 -->
 		<script type="text/javascript">
-			/**
-			 *
-			 *
-			 *
-			 *
-			 * 여기에 작성하세요.
-			 *
-			 *
-			 *
-			 *
-			 */
+			$(function(){
+                $("td:eq(4)").css("background", "#ffff00");
+                $("td").eq(2).css("background", "#ff0000");
+                $("td:eq(4)").css("background", "#00ff00");
+                $("td").eq(4).prev().css("background", "#0000ff");
+                $("td:eq(4)").parent().css("color","#ff0000");
+                $("td").eq(4).parent().prev().css("color","#0000ff");
+                $("td:eq(4)").parent().next().children().css("text-decoration", "underline");
+            });
 		</script>
 	</head>
 	<body>
-		<!--
-
-
-
-			여기에 작성하세요.
-
-
-
-		-->
+		<table border="1">
+            <tr>
+                <td>1번</td>
+                <td>2번</td>
+                <td>3번</td>
+            </tr>
+            <tr>
+                <td>4번</td>
+                <td>5번</td>
+                <td>6번</td>
+            </tr>
+            <tr>
+                <td>7번</td>
+                <td>8번</td>
+                <td>9번</td>
+            </tr>
+        </table>
 	</body>
 </html>

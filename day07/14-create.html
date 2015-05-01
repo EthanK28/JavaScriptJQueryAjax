@@ -19,28 +19,49 @@
 		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 		<!-- 사용자 스크립트 블록 -->
 		<script type="text/javascript">
-			/**
-			 *
-			 *
-			 *
-			 *
-			 * 여기에 작성하세요.
-			 *
-			 *
-			 *
-			 *
-			 */
+			$(function(){
+                // 추가된 동적 요소의 수를 카운트 하기 위한 전역 변수
+                var i = 1;
+
+                $("input:eq(0)").click(function(){
+                    console.log("ㅇ");
+                    // 새로운 요소의 생성
+                    var li1 = $("<li>").css("color", "red").html("추가항목"+(i++));
+                    var li2 = $("<li>").css("color", "green").html("추가항목"+(i++));
+                    var li3 = $("<li>").css("color", "blue").html("추가항목"+(i++));
+
+                    // 새로 생성된 요소에 대한 이벤트 추가
+                    // remove() 함수는 해당 요소를 삭제하는 기능임
+
+                    li1.click(function(){
+                        $(this).remove();
+                    });
+
+                    li2.click(function(){
+                        $(this).remove();
+                    });
+
+                    li3.click(function(){
+                        $(this).remove();
+                    });
+
+                    // A.appendTo(A) --> A에 대한 B를 추가한
+                    // B.appendTo(B) --> B를 A에 추가하한ㄷ
+                    li1.appendTo($("ul"));
+                    $("ul").append(li2);
+                    $("ul").append(li3);
+                });
+
+                $("input:eq(1)").click(function(){
+                    $("ul").empty();
+                    i = 1;
+                });
+            });
 		</script>
 	</head>
 	<body>
-		<!--
-
-
-
-			여기에 작성하세요.
-
-
-
-		-->
+        <input type="button" value="추가"/>
+        <input type="button" value="제거"/>
+        <ul></ul>
 	</body>
 </html>

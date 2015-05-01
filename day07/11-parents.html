@@ -16,45 +16,84 @@
 		<![endif]-->
 
 		<style type="text/css">
-			/**
-			 *
-			 *
-			 *
-			 *
-			 * 여기에 작성하세요.
-			 *
-			 *
-			 *
-			 *
-			 */
+            div {
+                width:480px;
+                height: 300px;
+                padding-top: 20px;
+                background-size: 100% 100%;
+            }
+
+            ul {
+                padding: 30px 20px;
+                background-color: rgba(255, 255, 255, 0.6);
+            }
+
+            li > a > button {
+                width : 100px;
+                margin-left :20px;
+            }
 		</style>
 
 		<!-- jQuery Framework 참조하기 -->
 		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
 		<!-- 사용자 스크립트 블록 -->
 		<script type="text/javascript">
-			/**
-			 *
-			 *
-			 *
-			 *
-			 * 여기에 작성하세요.
-			 *
-			 *
-			 *
-			 *
-			 */
-		</script>
+            $(function(){
+                //링크가 클릭된 경우
+                $(".item > a").click(function(){
+                    // index() 함수는 요소의 보무 태그 안에서 몇 번째 항목인지를 검사하낟
+                    // 여기서는 <a>의 parent()의 index() 이므로 <li> 태그가 그 부모인
+                    event.preventDefault();
+
+                    // 몇번째 요서인지 검사한다
+                    var index = $(this).parent().index();
+
+                    var image = ['img/1.jpg', 'img/2.jpg', 'img/3.jpg'];
+
+                    // 클릭된 링크의 조상들 중에서 <div>태그를 검색하여 CSS 배경이지 설정
+                    $(this).parents("div").css({
+                        "background-image" : "url('"+image[index]+"')"
+                    });
+
+                    switch (index){
+                        case 0:
+                            var str = "<button>";
+                                str += index;
+                                str += "버튼입니다";
+                                str += "</button>";
+                                $(this).children().remove();
+                                $(this).parent().children().last().append(str);
+
+
+                            break;
+                        case 1:
+                            var str = "<button>";
+                            str += index;
+                            str += "버튼입니다";
+                            str += "</button>";
+                            break;
+                        case 2:
+                            var str = "<button>";
+                            str += index;
+                            str += "버튼입니다";
+                            str += "</button>";
+                            break;
+
+                    }
+
+                    return false;
+                });
+            })
+        </script>
 	</head>
 	<body>
-		<!--
-
-
-
-			여기에 작성하세요.
-
-
-
-		-->
+        <div>
+            <ul>
+                <li class="item"><a href="img/1.jpg">img/1.jpg</a></li>
+                <li class="item"><a href="img/2.jpg">img/2.jpg</a></li>
+                <li class="item"><a href="img/3.jpg">img/3.jpg</a></li>
+                <button>안녕하세요</button>
+            </ul>
+        </div>
 	</body>
 </html>
